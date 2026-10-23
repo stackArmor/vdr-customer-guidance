@@ -8,10 +8,9 @@ FedRAMP VDR / VER transition.
 ## Contents
 
 - `index.html`: customer overview, metadata explanation, five-step pilot,
-  AI and manual options, rollout sequence, readiness checklist, and FAQs.
-- `engineer-guide.html`: Kubernetes setup, metadata review, scan command,
-  platform routing, and secure handoff.
-- `assets/stackarmor-vdr-guidance-overview.pdf`: supplied customer overview.
+  AI and manual options, metadata upkeep, rollout sequence, readiness checklist, and FAQs.
+- `engineer-guide.html`: classification and association before scanner setup,
+  scan commands, ongoing coverage updates, platform routing, and secure handoff.
 - `assets/site.css` and `assets/site.js`: responsive styling and optional
   browser-local checklist / clipboard interactions.
 
@@ -33,7 +32,12 @@ The supplied **stackArmor VDR guidance overview**, dated October 23, 2026,
 provides the customer message, five pilot steps, mid-November planned GitLab
 change requests, and December 7 milestone. The site expands that guidance with
 the agency-scope, taxonomy, AI workflow, and metadata requirements discussed
-with the requester.
+with the requester. The source PDF is not distributed with the website.
+
+Customer clarifications explain that TSW flags assets using the default H/H/H
+profile, assignments generally remain stable, and existing tag, name, regex,
+or namespace rules may cover newly created assets. Corrected associations
+are reflected when TSW recalculates PAIN.
 
 Supporting sources:
 

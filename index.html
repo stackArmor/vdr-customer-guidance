@@ -36,7 +36,7 @@
           <p class="lede">Your team knows your system. We’ll help turn that knowledge into the asset context, priorities, and response workflows you need for the next phase of FedRAMP.</p>
           <div class="actions">
             <a class="button" href="#pilot">Start with the pilot <span aria-hidden="true">↓</span></a>
-            <a class="button secondary" href="assets/stackarmor-vdr-guidance-overview.pdf">Read the overview PDF <span aria-hidden="true">↗</span></a>
+            <a class="button secondary" href="#classification">Review asset classification <span aria-hidden="true">↓</span></a>
           </div>
           <p class="hero-note">For engineering, security, compliance, and the people coordinating readiness.</p>
         </div>
@@ -87,38 +87,22 @@
           <div class="profile-item"><div class="initial">A</div><h3>Availability</h3><p>What would stop working if this asset’s function were unavailable?</p><span class="level">AR · LOW / MEDIUM / HIGH</span></div>
         </div>
         <div class="split">
-          <div><h3>Confirm who could be affected.</h3><p class="small">Agency scope is an architectural decision. A shared service may have a different scope from a dedicated tenant’s workload.</p>
+          <div><h3>Confirm who could be affected.</h3><p class="small">The <code>multiAgency</code> setting records agency scope. It is an architectural decision: a shared service may have a different scope from a dedicated tenant’s workload.</p>
             <dl class="scope-options">
-              <div class="scope-row"><dt>Single agency<br><code>false</code></dt><dd>Compromise is limited to one agency—for example, dedicated tenant infrastructure with an isolated impact boundary.</dd></div>
-              <div class="scope-row"><dt>Multi-agency<br><code>true</code></dt><dd>Compromise of shared infrastructure could affect multiple agencies. This can increase the applicable PAIN tier.</dd></div>
+              <div class="scope-row"><dt>Single agency<br><code>multiAgency: false</code></dt><dd>Compromise is limited to one agency—for example, dedicated tenant infrastructure with an isolated impact boundary.</dd></div>
+              <div class="scope-row"><dt>Multi-agency<br><code>multiAgency: true</code></dt><dd>Compromise of shared infrastructure could affect multiple agencies. This can increase the applicable PAIN tier.</dd></div>
             </dl>
           </div>
           <div><h3>Keep the metadata review practical.</h3><p class="small">Also confirm your FedRAMP Certification Class and any asset-level exceptions. For the pilot, focus first on coverage, obvious mismatches, and assumptions flagged for review. Resolve material uncertainty with your stackArmor team before production use.</p><p class="small">A profile can use a direct vector such as <code>cr-h_ir-m_ar-l</code>, a governed three-part decision trace, or a configured named archetype. The <a href="https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/generate-k8s-vdr-configmap/references/archetype-guide.md">classification guide</a> explains the taxonomy and examples.</p><a class="text-link" href="engineer-guide.html#metadata">See metadata formats and review checks <span aria-hidden="true">→</span></a></div>
         </div>
-        <div class="notice warning"><span class="icon" aria-hidden="true">!</span><p><strong>Missing metadata creates conservative results.</strong> An unclassified asset is treated with High / High / High requirements and a multi-agency fail-safe. That can elevate PAIN and shorten deadlines. It does not mean that every unclassified finding automatically becomes N4 or N5; the vulnerability’s impact still matters.</p></div>
-      </div>
-    </section>
-
-    <section class="section" id="pilot" aria-labelledby="pilot-title">
-      <div class="wrap">
-        <div class="section-heading">
-          <div><p class="kicker">03 / Run the pilot</p><h2 id="pilot-title">Five steps to a<br>useful first result.</h2></div>
-          <div class="intro"><p>Start with a representative environment and a small group from engineering, security, and compliance. The local pilot helps you understand the data and prepare feedback for the production workflow.</p><p class="small">Kubernetes instructions are available in the engineer guide. Cloud Run, ECS, and Docker Swarm teams should use the scanner’s platform-specific instructions. For other environments, contact your stackArmor team to agree the right path.</p></div>
-        </div>
-        <div class="step-list">
-          <article class="pilot-step"><span class="step-num">01</span><div class="step-copy"><h3>Explore the PAIN Playground.</h3><p>Try changing an asset’s requirements, the vulnerability impact, and internet reachability. See how the combination changes priorities and remediation timeframes.</p><a class="text-link" href="https://stackarmor.github.io/rfc-fedramp-vdr/pain-playground.html">Open the playground <span aria-hidden="true">↗</span></a></div><div class="step-meta">Optional<span>Helpful for everyone</span></div></article>
-          <article class="pilot-step"><span class="step-num">02</span><div class="step-copy"><h3>Prepare the practice scanner.</h3><p>An engineer installs Trivy and the open-source stackArmor VDR plugin, confirms the target environment, and checks the required read access and registry access.</p><a class="text-link" href="engineer-guide.html#prepare">See setup and permissions <span aria-hidden="true">→</span></a></div><div class="step-meta">Engineering<span>Choose your pilot scope</span></div></article>
-          <article class="pilot-step"><span class="step-num">03</span><div class="step-copy"><h3>Draft your asset classification.</h3><p>Use the agent skills or prepare the same metadata manually. Kubernetes teams generate a candidate <code>vdr-fedramp.yaml</code>; cloud-resource teams use <code>vdr-cloud.yaml</code>. Review the inventory and the confidence / coverage notes with the draft.</p><a class="text-link" href="https://github.com/stackArmor/vdr-agent-skills">Open the skills and examples <span aria-hidden="true">↗</span></a></div><div class="step-meta">Required<span>AI assistance is optional</span></div></article>
-          <article class="pilot-step"><span class="step-num">04</span><div class="step-copy"><h3>Review and deploy the metadata.</h3><p>Check the profiles, agency scope, and coverage. Correct material errors and flagged assumptions. An engineer then deploys the approved metadata using your normal change or GitOps process.</p><a class="text-link" href="engineer-guide.html#review">Use the review checklist <span aria-hidden="true">→</span></a></div><div class="step-meta">Customer review<span>You approve and apply</span></div></article>
-          <article class="pilot-step"><span class="step-num">05</span><div class="step-copy"><h3>Run the scan. Review what changed.</h3><p>Preserve the scan JSON and open the HTML report locally. Sample findings across different PAIN tiers, exposure states, and asset profiles. Share the reviewed metadata, scan JSON, and feedback through your approved stackArmor channel.</p><a class="text-link" href="engineer-guide.html#scan">Run the Kubernetes pilot <span aria-hidden="true">→</span></a></div><div class="step-meta">Engineering + SecOps<span>Bring questions and feedback</span></div></article>
-        </div>
+        <div class="notice warning"><span class="icon" aria-hidden="true">!</span><p><strong>TSW flags assets using the default H/H/H profile.</strong> Missing classification uses conservative High / High / High requirements and a multi-agency fail-safe, which can elevate PAIN and shorten deadlines. Use the flag to review and correct the asset’s profile association. After the corrected profile is associated and TSW recalculates PAIN, the results reflect the updated classification.</p></div>
       </div>
     </section>
 
     <section class="section" id="ai" aria-labelledby="ai-title">
       <div class="wrap">
         <div class="section-heading">
-          <div><p class="kicker">04 / Choose how to classify</p><h2 id="ai-title">Your process.<br>Your review.</h2></div>
+          <div><p class="kicker">03 / Choose how to classify</p><h2 id="ai-title">Your process.<br>Your review.</h2></div>
           <div class="intro"><p>The requirement is accurate metadata in the supported format. The skills help with a task that can be time-consuming to complete by hand, especially across hundreds of workloads.</p></div>
         </div>
         <div class="two-paths">
@@ -129,9 +113,38 @@
       </div>
     </section>
 
+    <section class="section" id="pilot" aria-labelledby="pilot-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="kicker">04 / Run the pilot</p><h2 id="pilot-title">Five steps to a<br>useful first result.</h2></div>
+          <div class="intro"><p>Start with a representative environment and a small group from engineering, security, and compliance. The local pilot helps you understand the data and prepare feedback for the production workflow.</p><p class="small">Kubernetes instructions are available in the engineer guide. Cloud Run, ECS, and Docker Swarm teams should use the scanner’s platform-specific instructions. For other environments, contact your stackArmor team to agree the right path.</p></div>
+        </div>
+        <div class="step-list">
+          <article class="pilot-step"><span class="step-num">01</span><div class="step-copy"><h3>Explore the PAIN Playground.</h3><p>Try changing an asset’s requirements, the vulnerability impact, and internet reachability. See how the combination changes priorities and remediation timeframes.</p><a class="text-link" href="https://stackarmor.github.io/rfc-fedramp-vdr/pain-playground.html">Open the playground <span aria-hidden="true">↗</span></a></div><div class="step-meta">Optional<span>Helpful for everyone</span></div></article>
+          <article class="pilot-step"><span class="step-num">02</span><div class="step-copy"><h3>Draft your asset classification.</h3><p>Use the agent skills or prepare the same metadata manually. Kubernetes teams generate a candidate <code>vdr-fedramp.yaml</code>; cloud-resource teams use <code>vdr-cloud.yaml</code>. Review the inventory and the confidence / coverage notes with the draft.</p><a class="text-link" href="https://github.com/stackArmor/vdr-agent-skills">Open the skills and examples <span aria-hidden="true">↗</span></a></div><div class="step-meta">Required<span>AI assistance is optional</span></div></article>
+          <article class="pilot-step"><span class="step-num">03</span><div class="step-copy"><h3>Review and associate profiles with your assets.</h3><p>Check the profiles, <code>multiAgency</code> values, and assignment coverage. Correct material errors and flagged assumptions. Deploy the approved metadata through your normal change or GitOps process so each asset resolves to its intended profile.</p><a class="text-link" href="engineer-guide.html#review">Use the review checklist <span aria-hidden="true">→</span></a></div><div class="step-meta">Customer review<span>You approve and apply</span></div></article>
+          <article class="pilot-step"><span class="step-num">04</span><div class="step-copy"><h3>Prepare the practice scanner.</h3><p>With classification and profile associations in place, an engineer installs Trivy and the open-source stackArmor VDR plugin and checks scanner permissions and registry access for the pilot environment.</p><a class="text-link" href="engineer-guide.html#scanner">See scanner setup and permissions <span aria-hidden="true">→</span></a></div><div class="step-meta">Engineering<span>Metadata comes first</span></div></article>
+          <article class="pilot-step"><span class="step-num">05</span><div class="step-copy"><h3>Run the scan. Review what changed.</h3><p>Preserve the scan JSON and open the HTML report locally. Sample findings across different PAIN tiers, exposure states, and asset profiles. Share the reviewed metadata, scan JSON, and feedback through your approved stackArmor channel.</p><a class="text-link" href="engineer-guide.html#scan">Run the Kubernetes pilot <span aria-hidden="true">→</span></a></div><div class="step-meta">Engineering + SecOps<span>Bring questions and feedback</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="maintenance" aria-labelledby="maintenance-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="kicker">05 / Keep coverage current</p><h2 id="maintenance-title">When do we need<br>to rerun the skills?</h2></div>
+          <div class="intro"><p>There is no fixed rerun schedule. Classification assignments are generally stable. Review coverage when you add a resource or workload, or when an existing asset’s role, data, impact, or agency scope changes.</p><p>A new asset may already match an existing assignment rule. In that case, the rule supplies its profile without another skill run.</p></div>
+        </div>
+        <div class="two-paths">
+          <div class="path"><h3>Already covered? The rule applies.</h3><p>Cloud rules can assign a profile to resources with matching tags or names, including supported regex name matches. Kubernetes rules can cover workloads by name or across a namespace.</p><p>New assets that match those rules receive the existing association. Confirm that the assigned profile fits their actual role and impact; sharing a name pattern or tag alone does not establish that the classification is appropriate.</p></div>
+          <div class="path"><h3>A gap or changed role? Update the assignment.</h3><p>If an asset is not covered, TSW flags its default H/H/H profile for review. Add or adjust the metadata or rule so the asset resolves to the appropriate profile. You can do this manually or use a coverage-update skill.</p><p>Once the profile is associated, TSW uses it when PAIN scores are recalculated and adjusts the results accordingly. Reassess an existing assignment when the asset’s security consequences change.</p><a class="text-link" href="engineer-guide.html#maintenance">See how to maintain assignment coverage <span aria-hidden="true">→</span></a></div>
+        </div>
+      </div>
+    </section>
+
     <section class="dark-section" id="timeline" aria-labelledby="timeline-title">
       <div class="wrap">
-        <div class="section-heading"><div><p class="kicker">05 / Coordinate the transition</p><h2 id="timeline-title">Prepare now.<br>Roll out together.</h2></div><div class="intro"><p>The sequence below reflects the customer rollout plan in the October 23 overview. Your stackArmor team will coordinate the system-specific change request and implementation details with you.</p></div></div>
+        <div class="section-heading"><div><p class="kicker">06 / Coordinate the transition</p><h2 id="timeline-title">Prepare now.<br>Roll out together.</h2></div><div class="intro"><p>The sequence below reflects the stackArmor customer rollout plan as of October 23. Your stackArmor team will coordinate the system-specific change request and implementation details with you.</p></div></div>
         <div class="timeline">
           <div class="milestone"><p class="when">Now · Phase 1</p><h3>Classify and practice.</h3><p>Run the local pilot, review the results, and share the metadata, scan JSON, and feedback. Prepare your response process for deadlines measured in days and weeks.</p></div>
           <div class="milestone"><p class="when">Mid-November · Planned</p><h3>Review your change request.</h3><p>stackArmor plans to begin creating GitLab change requests for customer review and approval of the uplift to TSW 4.0 and VDR / VER.</p></div>
@@ -157,6 +170,7 @@
       <div class="wrap faq-layout">
         <div><p class="kicker">Common questions</p><h2 id="questions-title">A few things<br>to know.</h2><p class="small">For questions about your environment, use your existing stackArmor account or support channel.</p></div>
         <div>
+          <details><summary>How often do we need to rerun the skills?</summary><p>There is no fixed schedule. Assignments are generally stable, and existing tag, name, or namespace rules may already cover new assets. Review coverage when resources are added or their role changes. TSW flags assets using default H/H/H so you can correct missing associations; PAIN reflects the updated profile after recalculation. <a href="#maintenance">Read the maintenance guidance.</a></p></details>
           <details><summary>Do we have to use AI?</summary><p>No. You need the classification metadata, taxonomy, and supported format. Your team can produce it manually. The agent skills help generate a reviewable first draft and coverage evidence.</p></details>
           <details><summary>Will the agent change our environment?</summary><p>The core generation skills inspect metadata with read-only CLI commands and write local candidate files. Applying a ConfigMap or uploading cloud configuration is a separate customer action. Review the specific skill’s permissions and scripts before use.</p></details>
           <details><summary>Is all metadata safe to send to any AI service?</summary><p>Use your organization’s approved service and configuration. Read-only collection does not automatically make environment metadata non-sensitive. Workload names, resource identifiers, configuration, and architecture can still require protection. The core Kubernetes generation skill does not fetch Secret values.</p></details>
@@ -173,8 +187,7 @@
       <div class="wrap">
         <div class="section-heading"><div><p class="kicker">Keep these close</p><h2 id="resources-title">The right resource<br>for the next step.</h2></div><div class="intro"><p>Use the overview for the customer conversation, the engineer guide for the first pilot, and the source repositories for detailed implementation instructions.</p></div></div>
         <div class="resource-list">
-          <a class="resource" href="assets/stackarmor-vdr-guidance-overview.pdf"><span class="resource-title">Customer overview PDF</span><span class="resource-description">The original two-page stackArmor guidance and rollout sequence.</span><span class="resource-arrow" aria-hidden="true">↗</span></a>
-          <a class="resource" href="engineer-guide.html"><span class="resource-title">Engineer quick start</span><span class="resource-description">Kubernetes setup, classification review, scan commands, and pilot handoff.</span><span class="resource-arrow" aria-hidden="true">→</span></a>
+          <a class="resource" href="engineer-guide.html"><span class="resource-title">Engineer quick start</span><span class="resource-description">Asset classification, profile association, scanner setup, and pilot handoff.</span><span class="resource-arrow" aria-hidden="true">→</span></a>
           <a class="resource" href="https://stackarmor.github.io/rfc-fedramp-vdr/pain-playground.html"><span class="resource-title">PAIN Playground</span><span class="resource-description">Explore how asset requirements, vulnerability impact, and reachability affect the outcome.</span><span class="resource-arrow" aria-hidden="true">↗</span></a>
           <a class="resource" href="https://github.com/stackArmor/vdr-agent-skills"><span class="resource-title">VDR agent skills</span><span class="resource-description">Read the workflows, taxonomy, permissions, installation steps, and sample outputs.</span><span class="resource-arrow" aria-hidden="true">↗</span></a>
           <a class="resource" href="https://github.com/stackArmor/trivy-plugin-vdr"><span class="resource-title">Trivy VDR plugin</span><span class="resource-description">Open-source scanner documentation and platform-specific commands.</span><span class="resource-arrow" aria-hidden="true">↗</span></a>
@@ -187,7 +200,7 @@
   </main>
   <footer class="footer wrap">
     <div class="footer-top"><a class="brand" href="https://stackarmor.com">stack<strong>Armor</strong></a><div class="footer-links"><a href="https://github.com/stackArmor/vdr-customer-guidance">Page source</a><a href="engineer-guide.html#sources">Sources &amp; references</a><a href="#main">Back to top ↑</a></div></div>
-    <p class="footer-note">Customer guidance · Updated October 23, 2026. Based on the stackArmor VDR guidance overview, the published pilot guide, and supporting technical documentation. The mid-November rollout step is a stackArmor plan; applicable requirements remain governed by the current FedRAMP rules and your system’s coordinated implementation plan.</p>
+    <p class="footer-note">Customer guidance · Updated October 23, 2026. Based on stackArmor customer rollout guidance, the published pilot guide, and supporting technical documentation. The mid-November rollout step is a stackArmor plan; applicable requirements remain governed by the current FedRAMP rules and your system’s coordinated implementation plan.</p>
   </footer>
 </body>
 </html>
