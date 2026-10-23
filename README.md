@@ -7,7 +7,8 @@ FedRAMP VDR / VER transition.
 
 ## Contents
 
-- `index.html`: customer overview, metadata explanation, required setup and optional scanning,
+- `index.html`: customer overview, eight-factor evaluation method and remediation-component
+  examples, metadata explanation, required setup and optional scanning,
   AI and manual options, metadata upkeep, rollout sequence, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
   Kubernetes classification, profile association, ongoing coverage updates,
@@ -91,6 +92,20 @@ for any AI service. Specific model authorization claims are intentionally
 avoided; customers use approved services and configurations.
 
 ## Content maintenance
+
+The overview's `#evaluation-method` section maps TSW's method to the eight
+VER-EVA-EFA factors. It separates exploitation likelihood from the conservative
+automation assumption and explains how asset classification incorporates
+privilege. `#prevalence` defines a **remediation component** as the configuration
+component that must change for a fix to survive restart, redeployment, or scaling.
+Container examples retain each image reference, including init containers;
+auto-scaling VM examples identify the ASG and its launch configuration/template.
+Counts describe response scope without requiring an independent PAIN multiplier.
+Customer-supplied method clarifications and the reviewed eight-factor analysis
+inform this mapping. FedRAMP VER-EVA-EFA and VER-EVA-AIA were checked against
+the linked official reference on October 23, 2026. The mapping describes the
+evaluation method; individual evaluation timing and operating results remain
+separate. Keep potential chaining assumptions distinct from demonstrated paths.
 
 Keep the visible update date and milestone text current when plans change.
 Distinguish stackArmor rollout plans from regulatory dates. Keep customer

@@ -42,7 +42,7 @@
             <a class="button secondary" href="#classification">Review asset classification <span aria-hidden="true">↓</span></a>
           </div>
           <p class="hero-note">For engineering, security, compliance, and the people coordinating readiness.</p>
-          <nav class="quick-links" aria-label="Quick access"><a href="#questions">Read the FAQ <span aria-hidden="true">→</span></a><a href="#updates">Subscribe to updates <span aria-hidden="true">→</span></a></nav>
+          <nav class="quick-links" aria-label="Quick access"><a href="#evaluation-method">How we evaluate vulnerabilities <span aria-hidden="true">→</span></a><a href="#questions">Read the FAQ <span aria-hidden="true">→</span></a><a href="#updates">Subscribe to updates <span aria-hidden="true">→</span></a></nav>
         </div>
         <aside class="date-panel" aria-label="Target milestone">
           <p class="label">The milestone we’re preparing for</p>
@@ -76,6 +76,56 @@
           <div class="flow-step"><small>RESPONSE</small><h3>What needs action, and when?</h3><p>PAIN, exploitability, internet reachability, and Certification Class inform the response priority and applicable remediation timeframe.</p></div>
         </div>
         <div class="notice"><span class="icon" aria-hidden="true">↳</span><p><strong>The immediate customer action is classification.</strong> Have reviewed metadata in place before your VDR integration rolls out. You can prepare it manually or use the agent skills to produce a draft. Either approach must describe your actual assets and follow the supported format.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="evaluation-method" aria-labelledby="evaluation-method-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <div><p class="kicker">Our method / Eight evaluation factors</p><h2 id="evaluation-method-title">How TSW meets the<br>evaluation requirements.</h2></div>
+          <div class="intro"><p>TSW brings asset context, vulnerability intelligence, configuration detail, and conservative assumptions together to address the eight factors in <a href="https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/#evaluation-factors">FedRAMP VER-EVA-EFA</a>. The rule calls for considering these factors in the context of the cloud service offering.</p><p>Each factor informs impact, exposure, exploitation likelihood, or the scope of response. They work together through the method below.</p></div>
+        </div>
+        <div class="table-wrap"><table class="evaluation-table" aria-label="How TSW considers the eight FedRAMP evaluation factors">
+          <thead><tr><th scope="col">Evaluation factor</th><th scope="col">How our method addresses it</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Criticality</th><td>Asset Security Impact Profiles capture independent confidentiality, integrity, and availability requirements (CR / IR / AR). TSW combines them with the vulnerability’s impacts, any agency intended-use ceiling, and affected-agency scope to calculate Potential Agency Impact (PAIN).</td></tr>
+            <tr><th scope="row">Reachability</th><td>Asset accessibility, the CVSS attack vector, and direct or confirmed indirect internet triggers determine whether a vulnerability is internet-reachable (IRV) or non-internet-reachable (NIRV). This considers payloads that reach vulnerable components through other services, including components without a public address. Reviewed environmental evidence can refine the determination.</td></tr>
+            <tr><th scope="row">Exploitability</th><td>TSW evaluates exploitation likelihood using the Exploit Prediction Scoring System (EPSS), CISA Known Exploited Vulnerabilities (KEV) membership, and workload persistence. Current EPSS thresholds are 0.20 for internet-reachable findings and 0.55 for non-internet-reachable findings. KEV establishes a Likely Exploitable Vulnerability (LEV); ephemeral workload handling and CVSS chain prerequisites provide additional context.</td></tr>
+            <tr><th scope="row">Detectability</th><td>Our method uses internet reachability as the exposure proxy for attacker discovery and conservatively assumes vulnerabilities can be discovered, including findings without a CVE. Public CVE information and references provide additional awareness context. Presumed obscurity provides no risk reduction.</td></tr>
+            <tr><th scope="row">Prevalence</th><td>TSW tracks vulnerability counts on each component and affected-component counts for each vulnerability or rule. Findings retain the individual <a href="#prevalence">remediation component</a> needed for a lasting fix, including separate container and init-container references within one service and the Auto Scaling Group that recreates VMs. This identifies both the spread of the issue and the configuration locations still needing an update.</td></tr>
+            <tr><th scope="row">Privilege</th><td>Asset classification considers IAM roles, RBAC, service-account authority, credentials, impersonation, and workload privileges when assigning CR / IR / AR. This captures the consequences of compromising the asset’s authority. Chain analysis adds privilege prerequisites and projected capabilities; where evidence is unavailable, the method assumes privilege gain is possible and grants no reduction.</td></tr>
+            <tr><th scope="row">Proximate vulnerabilities</th><td>CWE identifiers and CAPEC-derived capabilities and prerequisites inform how weaknesses can combine. The method conservatively accounts for potential chaining and lateral movement. TSW adds concrete resource grouping, supported same-boundary chain matches, and mitigation / response context; supported chains can tighten remediation deadlines. Potential movement remains assumed where a complete path has not been demonstrated.</td></tr>
+            <tr><th scope="row">Known threats</th><td>CISA KEV, EPSS enrichment, and vulnerability references inform threat evaluation and the likely / non-likely exploitation determination (LEV / NLEV). KEV records identify known exploitation and required action. When an applicable KEV due date precedes the calculated FedRAMP deadline, the earlier date governs.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="small"><strong>Automation is a separate assumption.</strong> Under <a href="https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/#assume-its-automatable">VER-EVA-AIA</a>, our method assumes exploitation can be automated unless evidence proves otherwise. EPSS and workload persistence evaluate exploitability; they do not depend on a claim that exploitation must be manual.</p>
+        <p class="small">Criticality, vulnerability impact, and agency scope determine PAIN. PAIN, Certification Class, exploitation likelihood, and internet reachability then select the remediation timeframe. Prevalence and the other contextual factors also guide investigation, grouping, and remediation scope; considering a factor does not require a separate numeric score or a PAIN increase.</p>
+
+        <div class="remediation-detail" id="prevalence" aria-labelledby="prevalence-title">
+          <p class="kicker">Prevalence / Find every place the fix belongs</p>
+          <h3 id="prevalence-title">Track the remediation component.</h3>
+          <p>A <strong>remediation component</strong> is the specific configuration component you must update so the fix survives a restart, redeployment, or scaling event. TSW preserves this detail when grouping vulnerabilities across a service. You can see how many vulnerabilities affect each component, where the same vulnerability appears, and which locations still need action.</p>
+          <div class="split">
+            <div>
+              <h4>Container workloads: every image reference matters.</h4>
+              <p class="small">A service may contain several containers, sidecars, and init containers. Building a patched image is the first step; every affected image reference in the workload configuration must use it. If the image is used in three locations and you update only two, TSW continues to flag the third location when it is observed in scanning.</p>
+              <div class="table-wrap"><table class="component-example" aria-label="Example of an incomplete image update within a workload"><thead><tr><th scope="col">Image reference</th><th scope="col">After the update</th></tr></thead><tbody>
+                <tr><th scope="row"><code>containers.api</code></th><td>Patched image deployed</td></tr>
+                <tr><th scope="row"><code>containers.worker</code></th><td>Patched image deployed</td></tr>
+                <tr><th scope="row"><code>initContainers.migrate</code></th><td><strong>Old vulnerable image remains — update this reference.</strong></td></tr>
+              </tbody></table></div>
+              <p class="small">Apply the change in the owning workload definition and its deployment source, such as the Helm values or GitOps manifest, so a later rollout preserves it.</p>
+            </div>
+            <div>
+              <h4>Auto-scaling VMs: fix what creates the next instance.</h4>
+              <p class="small">For auto-scaling VMs, TSW tracks the Auto Scaling Group (ASG) as the remediation component. Updating a running instance alone can leave the group configured to create vulnerable replacements.</p>
+              <p class="small">Update the group’s launch configuration or launch template and its image reference, then replace or refresh affected instances. Confirm both that existing instances are remediated and that newly created instances use the corrected configuration.</p>
+              <p class="small">The group remains the lasting remediation target as individual VMs scale out, terminate, or are replaced.</p>
+            </div>
+          </div>
+          <div class="notice"><span class="icon" aria-hidden="true">↳</span><p><strong>A lasting fix covers every affected configuration location.</strong> Use TSW’s component detail to find missed references and affected resources, apply the correction in the configuration that controls deployment, and verify the result through subsequent detection.</p></div>
+        </div>
+        <p class="small method-references">Method references: <a href="https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/">FedRAMP VER rules</a> · <a href="https://stackarmor.github.io/rfc-fedramp-vdr/">PAIN method and white papers</a> · <a href="https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/generate-k8s-vdr-configmap/references/archetype-guide.md">Security-impact classification guide</a>. Select the FedRAMP reference for your applicable certification path and Class.</p>
       </div>
     </section>
 
