@@ -9,9 +9,9 @@ FedRAMP VDR / VER transition.
 
 - `index.html`: customer overview, metadata explanation, required setup and optional scanning,
   AI and manual options, metadata upkeep, rollout sequence, readiness checklist, prominent FAQs, and update subscriptions.
-- `engineer-guide.html`: Kubernetes-specific classification and scan steps,
-  a prominent companion cloud CLI / vdr-cloud.yaml workflow, ongoing coverage
-  updates, platform routing, and secure handoff.
+- `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
+  Kubernetes classification, profile association, ongoing coverage updates,
+  and optional container scanning, with Kubernetes-specific scan commands.
 - `assets/site.css` and `assets/site.js`: responsive styling and optional
   browser-local checklist / clipboard interactions.
 
