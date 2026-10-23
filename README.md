@@ -8,7 +8,7 @@ FedRAMP VDR / VER transition.
 ## Contents
 
 - `index.html`: customer overview, metadata explanation, five-step pilot,
-  AI and manual options, metadata upkeep, rollout sequence, readiness checklist, and FAQs.
+  AI and manual options, metadata upkeep, rollout sequence, readiness checklist, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: classification and association before scanner setup,
   scan commands, ongoing coverage updates, platform routing, and secure handoff.
 - `assets/site.css` and `assets/site.js`: responsive styling and optional
@@ -78,3 +78,17 @@ Distinguish stackArmor rollout plans from regulatory dates. Keep customer
 artifacts, customer identifiers, scan output, credentials, and internal account
 plans out of this public repository. The checklist is stored only in the
 visitor's browser; the site has no forms, uploads, analytics, or server API.
+
+## Update subscriptions
+
+Subscribe to every new commit on `main` using GitHub's native Atom feed:
+
+https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom
+
+The feed is maintained by GitHub; no manual feed entries or publishing jobs are
+needed. The website's Updates section includes a copyable URL and guidance for
+Slack, Atom-compatible Teams apps, and RSS/Atom readers. Both pages declare the
+feed with an HTML alternate link for feed discovery. Notifications depend on
+the selected integration's refresh schedule and may precede Pages deployment.
+
+Keep commit subjects clear enough to be useful to customer subscribers.

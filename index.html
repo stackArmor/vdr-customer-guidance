@@ -11,6 +11,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/site.css">
+  <link rel="alternate" type="application/atom+xml" title="stackArmor customer guidance — main branch updates" href="https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom">
   <script defer src="assets/site.js"></script>
 </head>
 <body>
@@ -19,9 +20,11 @@
     <div class="wrap header-inner">
       <a class="brand" href="./" aria-label="stackArmor customer guidance home">stack<strong>Armor</strong><span class="brand-label">Customer guidance</span></a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="#understand">What’s changing</a>
-        <a href="#pilot">The pilot</a>
-        <a href="#resources">Resources</a>
+        <a class="nav-context" href="#understand">What’s changing</a>
+        <a class="nav-context" href="#pilot">The pilot</a>
+        <a href="#questions">FAQ</a>
+        <a href="#updates">Updates</a>
+        <a class="nav-context" href="#resources">Resources</a>
         <a class="nav-pill" href="engineer-guide.html">Engineer guide <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
@@ -39,6 +42,7 @@
             <a class="button secondary" href="#classification">Review asset classification <span aria-hidden="true">↓</span></a>
           </div>
           <p class="hero-note">For engineering, security, compliance, and the people coordinating readiness.</p>
+          <nav class="quick-links" aria-label="Quick access"><a href="#questions">Read the FAQ <span aria-hidden="true">→</span></a><a href="#updates">Subscribe to updates <span aria-hidden="true">→</span></a></nav>
         </div>
         <aside class="date-panel" aria-label="Target milestone">
           <p class="label">The milestone we’re preparing for</p>
@@ -96,6 +100,23 @@
           <div><h3>Keep the metadata review practical.</h3><p class="small">Also confirm your FedRAMP Certification Class and any asset-level exceptions. For the pilot, focus first on coverage, obvious mismatches, and assumptions flagged for review. Resolve material uncertainty with your stackArmor team before production use.</p><p class="small">A profile can use a direct vector such as <code>cr-h_ir-m_ar-l</code>, a governed three-part decision trace, or a configured named archetype. The <a href="https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/generate-k8s-vdr-configmap/references/archetype-guide.md">classification guide</a> explains the taxonomy and examples.</p><a class="text-link" href="engineer-guide.html#metadata">See metadata formats and review checks <span aria-hidden="true">→</span></a></div>
         </div>
         <div class="notice warning"><span class="icon" aria-hidden="true">!</span><p><strong>TSW flags assets using the default H/H/H profile.</strong> Missing classification uses conservative High / High / High requirements and a multi-agency fail-safe, which can elevate PAIN and shorten deadlines. Use the flag to review and correct the asset’s profile association. After the corrected profile is associated and TSW recalculates PAIN, the results reflect the updated classification.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="questions" aria-labelledby="questions-title">
+      <div class="wrap faq-layout">
+        <div><p class="kicker">FAQ / Common questions</p><h2 id="questions-title">Frequently asked<br>questions.</h2><p class="small">Start here for answers about AI, staging, platform support, and keeping metadata current. For questions about your environment, use your existing stackArmor account or support channel.</p></div>
+        <div>
+          <details><summary>How often do we need to rerun the skills?</summary><p>There is no fixed schedule. Assignments are generally stable, and existing tag, name, or namespace rules may already cover new assets. Review coverage when resources are added or their role changes. TSW flags assets using default H/H/H so you can correct missing associations; PAIN reflects the updated profile after recalculation. <a href="#maintenance">Read the maintenance guidance.</a></p></details>
+          <details><summary>Do we have to use AI?</summary><p>AI is highly recommended. The manual classification process could take days or weeks, while the agent skills can produce a first draft in minutes. Your team still reviews and approves the assignments. You can prepare the same metadata manually if needed.</p></details>
+          <details><summary>Will the agent change our environment?</summary><p>The core generation skills inspect metadata with read-only CLI commands and write local candidate files. We recommend using a Kubernetes context selected with <code>kubectx</code>, or a cloud CLI profile, whose credentials have read-only permissions. Applying a ConfigMap or uploading cloud configuration is a separate customer action.</p><p>You can run the skills against staging or non-production if that environment is architecturally close to production. Review the specific skill’s permissions and scripts before use.</p></details>
+          <details><summary>Is all metadata safe to send to any AI service?</summary><p>Use your organization’s approved service and configuration. Read-only collection does not automatically make environment metadata non-sensitive. Workload names, resource identifiers, configuration, and architecture can still require protection. The core Kubernetes generation skill does not fetch Secret values.</p></details>
+          <details><summary>Does the local scanner replace the TSW workflow?</summary><p>The pilot produces findings and a local report so you can evaluate the data and scoring. Finding dispositions, vendor dependencies, mitigation evidence, and response workflows belong in TSW and the coordinated production rollout.</p></details>
+          <details><summary>Is the HTML report the final production interface?</summary><p>The HTML report is a local exploration tool. It embeds scan data and lets you filter and review the results. TSW provides the production experience and workflows. Treat both the HTML and JSON as security-sensitive customer artifacts.</p></details>
+          <details><summary>Will VMs and managed databases still be supported?</summary><p>Yes. VM and managed database resources remain fully supported. Their VDR scoring functionality works and will be available in TSW. We use commercial off-the-shelf (COTS) scanning products for those resources, so we cannot offer a local pilot or preview of your system’s VDR scores for them.</p></details>
+          <details><summary>What if we use another container technology or our own scanner?</summary><p>If your container technology is not covered by the Kubernetes, Cloud Run, ECS, or Docker Swarm workflows here, contact stackArmor immediately.</p><p>To keep using your own container scanner, you must produce JSON in the identical report format as the Trivy VDR plugin and share it with stackArmor in an agreed cloud storage location so we can consume it. That integration can be a substantial lift, so you will likely need to adopt the stackArmor scanner for the near future. <a href="engineer-guide.html#other-platforms">Read the integration guidance.</a></p></details>
+          <details><summary>Should we classify a staging environment differently?</summary><p>No. Make staging representative of production and use the same classification approach so you have a reasonable view of vulnerability exposure before production deployment.</p><p>TSW logically separates non-production accounts from production while showing the full PAIN scores. Vulnerabilities in a designated non-production TSW account are excluded from TSW’s FedRAMP requirement tracking, reports, and incident automation.</p></details>
+        </div>
       </div>
     </section>
 
@@ -166,20 +187,17 @@
       </div>
     </section>
 
-    <section class="section" id="questions" aria-labelledby="questions-title">
-      <div class="wrap faq-layout">
-        <div><p class="kicker">Common questions</p><h2 id="questions-title">A few things<br>to know.</h2><p class="small">For questions about your environment, use your existing stackArmor account or support channel.</p></div>
-        <div>
-          <details><summary>How often do we need to rerun the skills?</summary><p>There is no fixed schedule. Assignments are generally stable, and existing tag, name, or namespace rules may already cover new assets. Review coverage when resources are added or their role changes. TSW flags assets using default H/H/H so you can correct missing associations; PAIN reflects the updated profile after recalculation. <a href="#maintenance">Read the maintenance guidance.</a></p></details>
-          <details><summary>Do we have to use AI?</summary><p>AI is highly recommended. The manual classification process could take days or weeks, while the agent skills can produce a first draft in minutes. Your team still reviews and approves the assignments. You can prepare the same metadata manually if needed.</p></details>
-          <details><summary>Will the agent change our environment?</summary><p>The core generation skills inspect metadata with read-only CLI commands and write local candidate files. We recommend using a Kubernetes context selected with <code>kubectx</code>, or a cloud CLI profile, whose credentials have read-only permissions. Applying a ConfigMap or uploading cloud configuration is a separate customer action.</p><p>You can run the skills against staging or non-production if that environment is architecturally close to production. Review the specific skill’s permissions and scripts before use.</p></details>
-          <details><summary>Is all metadata safe to send to any AI service?</summary><p>Use your organization’s approved service and configuration. Read-only collection does not automatically make environment metadata non-sensitive. Workload names, resource identifiers, configuration, and architecture can still require protection. The core Kubernetes generation skill does not fetch Secret values.</p></details>
-          <details><summary>Does the local scanner replace the TSW workflow?</summary><p>The pilot produces findings and a local report so you can evaluate the data and scoring. Finding dispositions, vendor dependencies, mitigation evidence, and response workflows belong in TSW and the coordinated production rollout.</p></details>
-          <details><summary>Is the HTML report the final production interface?</summary><p>The HTML report is a local exploration tool. It embeds scan data and lets you filter and review the results. TSW provides the production experience and workflows. Treat both the HTML and JSON as security-sensitive customer artifacts.</p></details>
-          <details><summary>Will VMs and managed databases still be supported?</summary><p>Yes. VM and managed database resources remain fully supported. Their VDR scoring functionality works and will be available in TSW. We use commercial off-the-shelf (COTS) scanning products for those resources, so we cannot offer a local pilot or preview of your system’s VDR scores for them.</p></details>
-          <details><summary>What if we use another container technology or our own scanner?</summary><p>If your container technology is not covered by the Kubernetes, Cloud Run, ECS, or Docker Swarm workflows here, contact stackArmor immediately.</p><p>To keep using your own container scanner, you must produce JSON in the identical report format as the Trivy VDR plugin and share it with stackArmor in an agreed cloud storage location so we can consume it. That integration can be a substantial lift, so you will likely need to adopt the stackArmor scanner for the near future. <a href="engineer-guide.html#other-platforms">Read the integration guidance.</a></p></details>
-          <details><summary>Should we classify a staging environment differently?</summary><p>No. Make staging representative of production and use the same classification approach so you have a reasonable view of vulnerability exposure before production deployment.</p><p>TSW logically separates non-production accounts from production while showing the full PAIN scores. Vulnerabilities in a designated non-production TSW account are excluded from TSW’s FedRAMP requirement tracking, reports, and incident automation.</p></details>
+    <section class="section" id="updates" aria-labelledby="updates-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="kicker">Keep up with changes</p><h2 id="updates-title">Get guidance updates<br>where you work.</h2></div><div class="intro"><p>Subscribe to the GitHub commit feed for this repository’s <code>main</code> branch. New commits appear automatically, with a summary and a link to the change—including documentation and maintenance updates.</p><p>GitHub publishes the feed in Atom format. Use it in an RSS/Atom reader or a compatible Slack or Teams integration.</p></div></div>
+        <div class="command"><div class="command-head"><span>MAIN BRANCH UPDATE FEED · RSS / ATOM</span><button class="copy-button" type="button" data-copy="updates-feed-url" data-copy-success="Feed URL copied to clipboard." aria-label="Copy the main branch update feed URL">Copy</button></div><pre><code id="updates-feed-url">https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom</code></pre></div>
+        <div class="actions"><a class="button" href="https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom">Open update feed <span aria-hidden="true">↗</span></a><a class="button secondary" href="https://github.com/stackArmor/vdr-customer-guidance/commits/main/">View recent changes <span aria-hidden="true">↗</span></a></div>
+        <div class="subscription-grid">
+          <article class="subscription-option"><h3>Slack</h3><p>Add Slack’s RSS app to your workspace. In the channel where you want alerts, enter <code>/feed subscribe</code> followed by the feed URL above.</p><a class="text-link" href="https://slack.com/help/articles/218688467-Add-RSS-feeds-to-Slack">Slack setup instructions <span aria-hidden="true">↗</span></a></article>
+          <article class="subscription-option"><h3>Microsoft Teams</h3><p>Add the URL through a Teams feed app that supports Atom. For example, Feeder supports Atom feeds; its automatic channel posting requires a Professional plan. Your Teams administrator can help select an integration available to your organization.</p><a class="text-link" href="https://marketplace.microsoft.com/en-us/product/Office365/WA200004254">Atom-compatible Teams app example <span aria-hidden="true">↗</span></a></article>
+          <article class="subscription-option"><h3>Your feed reader</h3><p>Choose the option to add a feed or subscription, paste the URL above, and enable notifications in your RSS/Atom client.</p><p>No GitHub account is required to read this public feed.</p></article>
         </div>
+        <p class="small feed-note">Alert timing follows your integration’s refresh schedule. A commit may appear in the feed before its website deployment finishes.</p>
       </div>
     </section>
 
@@ -197,9 +215,10 @@
         <div class="contact-band"><div><h3>Bring us your questions early.</h3><p>Need help with metadata, an approved AI workflow, a different platform, or your rollout plan? Reach out to your existing stackArmor team.</p></div><a class="button" href="https://stackarmor.com/contact/">Contact stackArmor <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
+    <p class="visually-hidden" data-copy-status role="status" aria-live="polite"></p>
   </main>
   <footer class="footer wrap">
-    <div class="footer-top"><a class="brand" href="https://stackarmor.com">stack<strong>Armor</strong></a><div class="footer-links"><a href="https://github.com/stackArmor/vdr-customer-guidance">Page source</a><a href="engineer-guide.html#sources">Sources &amp; references</a><a href="#main">Back to top ↑</a></div></div>
+    <div class="footer-top"><a class="brand" href="https://stackarmor.com">stack<strong>Armor</strong></a><div class="footer-links"><a href="#questions">FAQ</a><a href="#updates">Subscribe to updates</a><a href="https://github.com/stackArmor/vdr-customer-guidance">Page source</a><a href="engineer-guide.html#sources">Sources &amp; references</a><a href="#main">Back to top ↑</a></div></div>
     <p class="footer-note">Customer guidance · Updated October 23, 2026. Based on stackArmor customer rollout guidance, the published pilot guide, and supporting technical documentation. The Veterans Day week rollout is a stackArmor plan; applicable requirements remain governed by the current FedRAMP rules and your system’s coordinated implementation plan.</p>
   </footer>
 </body>
