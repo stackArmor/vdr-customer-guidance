@@ -8,12 +8,12 @@ FedRAMP VDR / VER transition.
 ## Contents
 
 - `index.html`: customer overview, metadata explanation, required setup and optional scanning,
-  AI and manual options, metadata upkeep, rollout sequence, readiness checklist, prominent FAQs, and update subscriptions.
+  AI and manual options, metadata upkeep, rollout sequence, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
   Kubernetes classification, profile association, ongoing coverage updates,
   and optional container scanning, with Kubernetes-specific scan commands.
-- `assets/site.css` and `assets/site.js`: responsive styling and optional
-  browser-local checklist / clipboard interactions.
+- `assets/site.css` and `assets/site.js`: responsive styling and
+  clipboard interactions.
 
 ## Preview and publishing
 
@@ -66,8 +66,7 @@ and are shared for transparency.
 Classification and profile association are required customer work now. The
 Trivy VDR container scanner is optional: customers can use it to understand
 PAIN scores locally or integrate it into their SDLC to catch high-PAIN
-vulnerabilities before deployment. Scanner execution is not a readiness
-checklist requirement. The earlier Kubernetes testing guide supplied the
+vulnerabilities before deployment. The earlier Kubernetes testing guide supplied the
 initial evaluation framing; current customer instructions take precedence.
 
 Docker Swarm scanning is available in the plugin, but the agent skills do not
@@ -96,8 +95,7 @@ avoided; customers use approved services and configurations.
 Keep the visible update date and milestone text current when plans change.
 Distinguish stackArmor rollout plans from regulatory dates. Keep customer
 artifacts, customer identifiers, scan output, credentials, and internal account
-plans out of this public repository. The checklist is stored only in the
-visitor's browser; the site has no forms, uploads, analytics, or server API.
+plans out of this public repository. The site has no forms, uploads, analytics, or server API.
 
 ## Update subscriptions
 
