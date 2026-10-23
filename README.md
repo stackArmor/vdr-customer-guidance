@@ -9,8 +9,9 @@ FedRAMP VDR / VER transition.
 
 - `index.html`: customer overview, metadata explanation, five-step pilot,
   AI and manual options, metadata upkeep, rollout sequence, readiness checklist, prominent FAQs, and update subscriptions.
-- `engineer-guide.html`: classification and association before scanner setup,
-  scan commands, ongoing coverage updates, platform routing, and secure handoff.
+- `engineer-guide.html`: Kubernetes-specific classification and scan steps,
+  a prominent companion cloud CLI / vdr-cloud.yaml workflow, ongoing coverage
+  updates, platform routing, and secure handoff.
 - `assets/site.css` and `assets/site.js`: responsive styling and optional
   browser-local checklist / clipboard interactions.
 
@@ -54,6 +55,14 @@ from production; their vulnerabilities are excluded from TSW's FedRAMP
 requirement tracking, reporting, and incident automation. The site no longer
 offers a stackArmor preview walkthrough.
 
+The initial customer workflow uses two skills: `generate-k8s-vdr-configmap`
+for Kubernetes workloads and `generate-cloud-vdr-config` for non-Kubernetes
+cloud workloads / resources. The latter inventories through AWS / GCP CLIs
+and emits `vdr-cloud.yaml`. Environments with Kubernetes and cloud resources
+need both outputs. Corresponding update skills are for later maintenance;
+other published skills are deprecated or intended for stackArmor employees
+and are shared for transparency.
+
 Supporting sources:
 
 - [Customer Kubernetes VDR pilot guide](https://github.com/stackArmor/rfc-fedramp-vdr/blob/main/docs/customer-vdr-testing-summary.md)
@@ -92,3 +101,7 @@ feed with an HTML alternate link for feed discovery. Notifications depend on
 the selected integration's refresh schedule and may precede Pages deployment.
 
 Keep commit subjects clear enough to be useful to customer subscribers.
+
+We expect limited repository updates after December 2026. During rollout,
+customer questions will drive updates to the page and FAQ so other customers
+can benefit from the answers.
