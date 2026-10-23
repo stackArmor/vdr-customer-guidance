@@ -70,6 +70,10 @@ vulnerabilities before deployment. Scanner execution is not a readiness
 checklist requirement. The earlier Kubernetes testing guide supplied the
 initial evaluation framing; current customer instructions take precedence.
 
+Docker Swarm scanning is available in the plugin, but the agent skills do not
+yet cover Docker Swarm. Customers should contact stackArmor support through
+their engagement manager or shared Slack channel for the path forward.
+
 Supporting sources:
 
 - [Earlier Kubernetes scanner testing guide](https://github.com/stackArmor/rfc-fedramp-vdr/blob/main/docs/customer-vdr-testing-summary.md)
