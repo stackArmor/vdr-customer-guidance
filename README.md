@@ -29,8 +29,10 @@ Open http://localhost:8765/. GitHub Pages publishes the root of `main`.
 ## Editorial sources
 
 The supplied **stackArmor VDR guidance overview**, dated October 23, 2026,
-provides the customer message, five pilot steps, mid-November planned GitLab
-change requests, and December 7 milestone. The site expands that guidance with
+provides the initial customer message and December 7 milestone. Current
+customer guidance reflects the subsequent stackArmor clarification that TSW
+VDR features begin reaching customers during the week of Veterans Day
+(November 9–13, 2026), with environment-specific change coordination. The site expands that guidance with
 the agency-scope, taxonomy, AI workflow, and metadata requirements discussed
 with the requester. The source PDF is not distributed with the website.
 
@@ -38,6 +40,19 @@ Customer clarifications explain that TSW flags assets using the default H/H/H
 profile, assignments generally remain stable, and existing tag, name, regex,
 or namespace rules may cover newly created assets. Corrected associations
 are reflected when TSW recalculates PAIN.
+
+Additional customer guidance recommends read-only Kubernetes contexts / cloud
+CLI profiles and architecturally representative staging environments. It
+strongly recommends AI assistance for classification. VM and managed database
+scoring remains fully supported in TSW, with COTS scanner limitations preventing
+a local VDR scoring pilot for those resources. Other container technologies
+require immediate coordination; an external scanner must emit the identical
+Trivy VDR JSON report format for agreed cloud-storage ingestion.
+
+Non-production TSW accounts retain full PAIN scores and are logically separated
+from production; their vulnerabilities are excluded from TSW's FedRAMP
+requirement tracking, reporting, and incident automation. The site no longer
+offers a stackArmor preview walkthrough.
 
 Supporting sources:
 
