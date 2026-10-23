@@ -1,5 +1,5 @@
 (() => {
-  const storageKey = 'stackarmor-vdr-readiness-v1';
+  const storageKey = 'stackarmor-vdr-readiness-v2';
   const checks = [...document.querySelectorAll('[data-readiness]')];
   const status = document.querySelector('[data-progress-text]');
   const fill = document.querySelector('[data-progress-fill]');

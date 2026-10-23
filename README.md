@@ -7,7 +7,7 @@ FedRAMP VDR / VER transition.
 
 ## Contents
 
-- `index.html`: customer overview, metadata explanation, five-step pilot,
+- `index.html`: customer overview, metadata explanation, required setup and optional scanning,
   AI and manual options, metadata upkeep, rollout sequence, readiness checklist, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: Kubernetes-specific classification and scan steps,
   a prominent companion cloud CLI / vdr-cloud.yaml workflow, ongoing coverage
@@ -46,7 +46,7 @@ Additional customer guidance recommends read-only Kubernetes contexts / cloud
 CLI profiles and architecturally representative staging environments. It
 strongly recommends AI assistance for classification. VM and managed database
 scoring remains fully supported in TSW, with COTS scanner limitations preventing
-a local VDR scoring pilot for those resources. Other container technologies
+a local VDR scoring preview for those resources. Other container technologies
 require immediate coordination; an external scanner must emit the identical
 Trivy VDR JSON report format for agreed cloud-storage ingestion.
 
@@ -63,9 +63,16 @@ need both outputs. Corresponding update skills are for later maintenance;
 other published skills are deprecated or intended for stackArmor employees
 and are shared for transparency.
 
+Classification and profile association are required customer work now. The
+Trivy VDR container scanner is optional: customers can use it to understand
+PAIN scores locally or integrate it into their SDLC to catch high-PAIN
+vulnerabilities before deployment. Scanner execution is not a readiness
+checklist requirement. The earlier Kubernetes testing guide supplied the
+initial evaluation framing; current customer instructions take precedence.
+
 Supporting sources:
 
-- [Customer Kubernetes VDR pilot guide](https://github.com/stackArmor/rfc-fedramp-vdr/blob/main/docs/customer-vdr-testing-summary.md)
+- [Earlier Kubernetes scanner testing guide](https://github.com/stackArmor/rfc-fedramp-vdr/blob/main/docs/customer-vdr-testing-summary.md)
 - [VDR agent skills](https://github.com/stackArmor/vdr-agent-skills)
 - [Security-impact profile classification guide](https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/generate-k8s-vdr-configmap/references/archetype-guide.md)
 - [Trivy VDR plugin](https://github.com/stackArmor/trivy-plugin-vdr)
