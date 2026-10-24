@@ -77,9 +77,11 @@ requirement tracking, reporting, and incident automation. The site no longer
 offers a stackArmor preview walkthrough.
 
 The initial customer workflow uses two skills: `generate-k8s-vdr-configmap`
-for Kubernetes workloads and `generate-cloud-vdr-config` for non-Kubernetes
-cloud workloads / resources. The latter inventories through AWS / Azure / GCP CLIs
-and emits `vdr-cloud.yaml`. Environments with Kubernetes and cloud resources
+for Kubernetes workloads and `generate-cloud-vdr-config` for other cloud
+workloads / resources, including VMs, managed databases, AWS ECS, and GCP Cloud Run. The latter inventories through AWS / Azure / GCP CLIs
+and emits `vdr-cloud.yaml`. This cloud YAML includes cloud-native containers as
+well as non-container workloads; the engineering guide spans workload types.
+Environments with Kubernetes and cloud resources
 need both outputs. Corresponding update skills are for later maintenance;
 other published skills are deprecated or intended for stackArmor employees
 and are shared for transparency.
