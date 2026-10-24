@@ -7,12 +7,15 @@ FedRAMP VDR / VER transition.
 
 ## Contents
 
-- `index.html`: customer overview, eight-factor evaluation method and remediation-component
-  examples, metadata explanation, required setup and optional scanning,
+- `index.html`: customer overview, eight-factor evaluation overview and links to the detailed method,
+  metadata explanation, required setup and optional scanning,
   AI and manual options, metadata upkeep, rollout sequence, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
   Kubernetes classification, profile association, ongoing coverage updates,
   and optional container scanning, with Kubernetes-specific scan commands.
+- `evaluation-method.html`: vendor evaluation history, decision transparency, protocol
+  and attack-path examples, RADAR TRACE research, exploitability/detectability,
+  chaining, remediation-component examples, integration criteria, and peer feedback.
 - `assets/site.css` and `assets/site.js`: responsive styling and
   clipboard interactions.
 
@@ -80,6 +83,8 @@ Supporting sources:
 - [VDR agent skills](https://github.com/stackArmor/vdr-agent-skills)
 - [Security-impact profile classification guide](https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/generate-k8s-vdr-configmap/references/archetype-guide.md)
 - [Trivy VDR plugin](https://github.com/stackArmor/trivy-plugin-vdr)
+- [RADAR TRACE public analysis](https://github.com/stackArmor/radar-trace-public)
+- [RADAR TRACE reachability gates](https://github.com/stackArmor/radar-trace-public/blob/main/docs/reachability-gates.md)
 - [FedRAMP notice NTC-0014](https://www.fedramp.gov/notices/0014/)
 - [FedRAMP VDR reference](https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-detection-and-response/)
 - [FedRAMP VER reference](https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/)
@@ -96,8 +101,9 @@ avoided; customers use approved services and configurations.
 The overview's `#evaluation-method` section maps TSW's method to the eight
 VER-EVA-EFA factors. It separates exploitation likelihood from the conservative
 automation assumption and explains how asset classification incorporates
-privilege. `#prevalence` defines a **remediation component** as the configuration
-component that must change for a fix to survive restart, redeployment, or scaling.
+privilege. The detailed method page defines a **remediation component** as the configuration
+component that must change for a fix to survive restart, redeployment, or scaling;
+the overview retains `#prevalence` as a short explanation and link.
 Container examples retain each image reference, including init containers;
 auto-scaling VM examples identify the ASG and its launch configuration/template.
 Counts describe response scope without requiring an independent PAIN multiplier.
@@ -106,6 +112,19 @@ inform this mapping. FedRAMP VER-EVA-EFA and VER-EVA-AIA were checked against
 the linked official reference on October 23, 2026. The mapping describes the
 evaluation method; individual evaluation timing and operating results remain
 separate. Keep potential chaining assumptions distinct from demonstrated paths.
+
+The FAQ links to `evaluation-method.html` for the user-supplied Tenable/Wiz
+assessment history, expected customer-cost implications, explainability needs,
+and future-integration criteria. Present the assessment as historical and
+specific to stackArmor's service, rather than a current claim about all products.
+Peer feedback is attributed to stackArmor's discussions with 3PAOs and CSP-AB
+participants; it is not an independent market ranking. The user supplied the
+NIST submission statement. Describe it as a proposal, not an endorsement.
+RADAR TRACE's public README and reachability-gates documentation support the
+attack-path discussion; distinguish research being incorporated from current
+TSW behavior. Document differing EPSS thresholds for IRV and NIRV without
+publishing their numeric values. Keep blocked-path examples conditional on
+verified protocol, route, and source restrictions and consider alternative paths.
 
 Keep the visible update date and milestone text current when plans change.
 Distinguish stackArmor rollout plans from regulatory dates. Keep customer
@@ -120,7 +139,7 @@ https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom
 
 The feed is maintained by GitHub; no manual feed entries or publishing jobs are
 needed. The website's Updates section includes a copyable URL and guidance for
-Slack, Atom-compatible Teams apps, and RSS/Atom readers. Both pages declare the
+Slack, Atom-compatible Teams apps, and RSS/Atom readers. All three pages declare the
 feed with an HTML alternate link for feed discovery. Notifications depend on
 the selected integration's refresh schedule and may precede Pages deployment.
 
