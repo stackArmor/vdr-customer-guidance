@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d3b">
+  <title>Agency coordination during the VDR transition | stackArmor</title>
+  <meta name="description" content="Coordinate FedRAMP and DoD agency expectations, continued vulnerability workflows, and possible POA&M-style reporting during the VDR transition.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="assets/theme.js?v=7749bf7907d3"></script>
+  <link rel="stylesheet" href="assets/site.css?v=af117a81518a">
+  <link rel="alternate" type="application/atom+xml" title="stackArmor customer guidance — main branch updates" href="https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><div class="wrap header-inner"><a class="brand" href="./" aria-label="stackArmor customer guidance home">stack<strong>Armor</strong><span class="brand-label">Customer guidance</span></a><nav class="nav" aria-label="Main navigation"><a class="nav-context" href="./#evaluation-method">Eight evaluation factors</a><a href="./#questions">FAQ</a><a href="./#updates">Updates</a><a class="nav-pill" href="engineer-guide.html">Engineering guide <span aria-hidden="true">↗</span></a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark mode" aria-pressed="false" title="Turn on dark mode" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg><span>Dark mode</span></button></nav></div></header>
+  <main id="main">
+    <section class="guide-hero"><div class="wrap"><a class="back-link" href="./#questions">← Customer FAQ</a><p class="eyebrow">Agency coordination / VDR and VER transition</p><h1>Keep your agency<br><em>in the conversation.</em></h1><p class="lede">Discuss the transition with your agency contacts now: what they expect to receive, how they will interpret the new evaluations, and which processes must continue for your authorization.</p></div></section>
+    <div class="wrap guide-layout">
+      <nav class="guide-nav" aria-label="Agency transition sections"><a href="#agency-readiness">Coordinate FedRAMP reporting</a><a href="#dod-workloads">DoD and parallel workflows</a><a href="#reporting-options">POA&amp;M-style reporting options</a><a href="#feedback">Share agency feedback</a></nav>
+      <div class="guide-content">
+        <section id="agency-readiness" aria-labelledby="agency-readiness-title">
+          <p class="kicker">Start with the receiving agency</p><h2 id="agency-readiness-title">Agree on how the transition will work.</h2>
+          <p>FedRAMP’s <a href="https://www.fedramp.gov/notices/0014/">published adoption date for VDR and VER is December 7, 2026</a>, aligned with CISA BOD 26-04. Ask your agency contacts how they are preparing their review and reporting processes for that transition and what they need from your team. Coordinate expectations against the published milestone.</p>
+          <p>Useful questions for the agency’s authorization and continuous-monitoring contacts include:</p>
+          <ul><li>How are you preparing to receive and review VDR / VER evaluations and reporting?</li><li>Which reports and supporting evidence do you expect during and after the transition? Will reviewers still expect a traditional POA&amp;M or a familiar tabular view?</li><li>How should we explain PAIN ratings, exploitation likelihood, internet reachability, and the resulting remediation dates to your reviewers?</li><li>Which existing agency-specific artifacts or processes must continue, and how should findings be correlated across the old and new reports?</li><li>Who should resolve reporting questions, and how should we communicate changes and exceptions?</li></ul>
+          <p>Share this guidance and the <a href="evaluation-method.html">evaluation-method explanation</a> with your agency contacts so the discussion starts from the same information.</p>
+        </section>
+
+        <section id="dod-workloads" aria-labelledby="dod-workloads-title">
+          <p class="kicker">Continued support for DoD workloads</p><h2 id="dod-workloads-title">The existing workflow remains available.</h2>
+          <p>stackArmor will keep the existing vulnerability management workflow functional for customers managing Department of Defense (DoD) workloads. The VDR transition does not mean that workflow will be disabled for those customers.</p>
+          <p>If a system supports both DoD and FedRAMP workloads, you may need to manage two vulnerability processes: the existing process required by your DoD sponsor and the VDR / VER process for FedRAMP. This may be necessary during the transition and could continue longer. The duration and scope depend on the requirements and guidance of the applicable authorities.</p>
+          <p>Engage your DoD sponsor directly. Ask whether it supports VDR-based evaluation or reporting for your authorization, whether updated guidance is available or under discussion, and which existing requirements it expects you to continue following. Your sponsor may have information about the direction of those discussions that is not yet available to stackArmor.</p>
+          <p>Share the sponsor’s response with your stackArmor team so we can help coordinate the appropriate workflows and reporting.</p>
+        </section>
+
+        <section id="reporting-options" aria-labelledby="reporting-options-title">
+          <p class="kicker">An option under consideration</p><h2 id="reporting-options-title">A familiar layout would still carry new evaluations.</h2>
+          <p>stackArmor is exploring a POA&amp;M-style companion artifact alongside applicable structured VDR JSON reports. The goal would be to give agency reviewers a familiar way to understand the information and maintain continuity during the transition. This is an option under consideration; discuss availability and your agency’s needs with your stackArmor team.</p>
+          <p>Such a report would be fundamentally different from the traditional POA&amp;M because it would represent VDR-based findings and decisions:</p>
+          <div class="table-wrap"><table aria-label="How a proposed VDR companion report would differ from a traditional POA&M"><thead><tr><th scope="col">Report element</th><th scope="col">What agency reviewers should expect</th></tr></thead><tbody>
+            <tr><th scope="row">Asset identifiers</th><td>Identifiers may change as findings are associated with the workload or configuration component that must be updated for a lasting fix. Discuss how reviewers should correlate affected resources between reports.</td></tr>
+            <tr><th scope="row">Impact and severity</th><td>Evaluated impact would reflect PAIN and agency / workload context. A PAIN rating is not a direct conversion of a raw CVSS severity.</td></tr>
+            <tr><th scope="row">Remediation timing</th><td>Due dates would follow the applicable VDR determination using PAIN, Certification Class, exploitation likelihood, and internet reachability, with applicable KEV deadlines also considered. These can differ from traditional CVSS-based timelines.</td></tr>
+            <tr><th scope="row">Supporting context</th><td>The report would need to explain the PAIN / LEV / IRV decisions and provide references back to the underlying findings and evidence.</td></tr>
+          </tbody></table></div>
+          <p>Ask the agency whether that presentation would help its reviewers and what fields, identifiers, or explanations it needs. A familiar report layout can help communication while preserving the meaning of the new evaluation.</p>
+        </section>
+
+        <section id="feedback" aria-labelledby="feedback-title">
+          <p class="kicker">Help shape the transition</p><h2 id="feedback-title">Bring agency questions and suggestions back to us.</h2>
+          <p>stackArmor is exploring reporting and communication options to help customers maintain trust with their agencies during this transition. We welcome other ideas from you and your agency contacts.</p>
+          <p>Share sponsor guidance, requested report formats, unclear mappings, and suggestions through your engagement manager or shared stackArmor Slack channel. We can discuss the options, identify what is practical, and update this guidance as common questions emerge.</p>
+          <p>For the underlying approach, see <a href="./#evaluation-method">the eight evaluation factors</a>, <a href="evaluation-method.html">the detailed methodology</a>, and <a href="engineer-guide.html">the engineering guide</a>. You can <a href="./#updates">subscribe to guidance updates</a> as the transition develops.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="footer wrap"><div class="footer-top"><a class="brand" href="https://stackarmor.com">stack<strong>Armor</strong></a><div class="footer-links"><a href="./">Customer overview</a><a href="./#questions">FAQ</a><a href="engineer-guide.html">Engineering guide</a><a href="./#updates">Subscribe to updates</a><a href="#main">Back to top ↑</a></div></div><p class="footer-note">Customer guidance · Updated October 24, 2026. Coordinate authorization-specific reporting and sponsor expectations with your agency and stackArmor team.</p></footer>
+</body>
+</html>

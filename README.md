@@ -16,6 +16,9 @@ FedRAMP VDR / VER transition.
 - `evaluation-method.html`: vendor evaluation history, decision transparency, protocol
   and attack-path examples, RADAR TRACE research, exploitability/detectability,
   chaining, remediation-component examples, integration criteria, and peer feedback.
+- `agency-transition.html`: agency discussion questions, continued DoD workflow
+  support, possible parallel processes, and POA&M-style companion reporting under
+  consideration.
 - `assets/site.css`, `assets/theme.js`, and `assets/site.js`: responsive light / dark
   styling, saved appearance preferences, and clipboard interactions.
 
@@ -33,7 +36,7 @@ Open http://localhost:8765/. GitHub Pages publishes the root of `main`.
 
 ## Appearance
 
-All three pages include a Dark mode toggle in the main navigation. The first
+All four pages include a Dark mode toggle in the main navigation. The first
 visit follows the system appearance; an explicit choice is saved locally and
 reused across pages and tabs. System changes remain effective until a choice
 is made. The small theme script runs before the stylesheet to avoid a flash of
@@ -152,6 +155,16 @@ Describe the lower IRV EPSS threshold relative to NIRV as the explicit mechanism
 by which detectability influences the likelihood determination, without numeric
 threshold values.
 
+The agency-transition guide records the October 24 customer clarification:
+legacy vulnerability workflows remain functional for DoD customers; mixed
+DoD/FedRAMP systems may need parallel processes for an uncertain duration.
+Customers should consult their sponsors about acceptance and expectations.
+POA&M-style companion reporting is under consideration, with no availability
+commitment. Explain its potentially different identifiers and VDR-based PAIN,
+likelihood, reachability, and due dates. Agency readiness discussions do not
+replace the published FedRAMP adoption milestone. Invite agency feedback through
+the established customer channels.
+
 Keep the visible update date and milestone text current when plans change.
 Distinguish stackArmor rollout plans from regulatory dates. Keep customer
 artifacts, customer identifiers, scan output, credentials, and internal account
@@ -165,7 +178,7 @@ https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom
 
 The feed is maintained by GitHub; no manual feed entries or publishing jobs are
 needed. The website's Updates section includes a copyable URL and guidance for
-Slack, Atom-compatible Teams apps, and RSS/Atom readers. All three pages declare the
+Slack, Atom-compatible Teams apps, and RSS/Atom readers. All four pages declare the
 feed with an HTML alternate link for feed discovery. Notifications depend on
 the selected integration's refresh schedule and may precede Pages deployment.
 
