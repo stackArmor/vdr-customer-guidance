@@ -16,8 +16,8 @@ FedRAMP VDR / VER transition.
 - `evaluation-method.html`: vendor evaluation history, decision transparency, protocol
   and attack-path examples, RADAR TRACE research, exploitability/detectability,
   chaining, remediation-component examples, integration criteria, and peer feedback.
-- `assets/site.css` and `assets/site.js`: responsive styling and
-  clipboard interactions.
+- `assets/site.css`, `assets/theme.js`, and `assets/site.js`: responsive light / dark
+  styling, saved appearance preferences, and clipboard interactions.
 
 ## Preview and publishing
 
@@ -30,6 +30,15 @@ python3 -m http.server 8765
 
 Open http://localhost:8765/. GitHub Pages publishes the root of `main`.
 `.nojekyll` keeps the source files unchanged during publication.
+
+## Appearance
+
+All three pages include a Dark mode toggle in the main navigation. The first
+visit follows the system appearance; an explicit choice is saved locally and
+reused across pages and tabs. System changes remain effective until a choice
+is made. The small theme script runs before the stylesheet to avoid a flash of
+the wrong appearance. If local storage is unavailable, the current page still
+supports switching themes. Print uses the light palette.
 
 ## Editorial sources
 
