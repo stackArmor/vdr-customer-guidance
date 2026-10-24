@@ -40,6 +40,14 @@ is made. The small theme script runs before the stylesheet to avoid a flash of
 the wrong appearance. If local storage is unavailable, the current page still
 supports switching themes. Print uses the light palette.
 
+Shared styles and scripts use content-hash query parameters so a newly deployed
+page cannot reuse an older cached theme stylesheet. After editing CSS or
+JavaScript, refresh the URLs before committing:
+
+```sh
+python3 scripts/version-assets.py
+```
+
 ## Editorial sources
 
 The supplied **stackArmor VDR guidance overview**, dated October 23, 2026,

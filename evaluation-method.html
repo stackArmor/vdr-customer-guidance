@@ -7,8 +7,8 @@
   <title>Our VDR method and integration approach | stackArmor</title>
   <meta name="description" content="Why stackArmor built its VDR method, what we evaluated, and the evidence needed to explain PAIN, exploitability, reachability, and lasting remediation.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <script src="assets/theme.js"></script>
-  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/theme.js?v=7749bf7907d3"></script>
+  <link rel="stylesheet" href="assets/site.css?v=af117a81518a">
   <link rel="alternate" type="application/atom+xml" title="stackArmor customer guidance — main branch updates" href="https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom">
 </head>
 <body>
@@ -28,7 +28,8 @@
 
         <section id="transparency" aria-labelledby="transparency-title">
           <p class="kicker">Accountability for the decision</p><h2 id="transparency-title">A determination needs an explanation.</h2>
-          <p>We need to understand the information and assumptions behind impact, internet reachability, and exploitability so we can own the outcome, explain it to an auditor, and guide a customer to the right corrective action. A vendor’s conclusion alone does not provide that explanation.</p>
+          <p>We need to understand the information and assumptions behind impact, internet reachability, and exploitability so we can own the outcome, explain it to an auditor, and guide a customer to the right corrective action. A vendor’s conclusion alone does not provide that explanation. Proprietary, closed-source analysis compounds the problem when its inputs, decision rules, and exceptions are unavailable for review.</p>
+          <p>In our view, this lack of transparency is the main reason agencies and FedRAMP have historically been wary of proprietary vulnerability evaluation systems and relied so heavily on raw CVSS scores, despite their limitations as measures of risk in a particular deployment. An inspectable scoring method gives reviewers a shared basis for understanding and challenging a result. Our approach carries that transparency into the environmental context needed for VDR.</p>
           <p>During our evaluation, the documentation available to us did not consistently provide enough detail to establish whether every condition below was considered. That did not establish that the underlying methodologies were unsound. It meant we could not take responsibility for every determination using the information available.</p>
           <p>For our method and any future integration, the evidence should answer:</p>
           <ul><li><strong>Impact:</strong> What data, trusted authority, or service could be affected, for which agencies?</li><li><strong>Reachability:</strong> Which route, protocol, trigger, and attacker access make this vulnerability reachable?</li><li><strong>Exploitability:</strong> Which threat signals, prerequisites, and workload characteristics support the likelihood determination?</li><li><strong>Corrective action:</strong> Which configuration change removes the affected component or prevents the required exploit path, and how will we verify it?</li></ul>
@@ -62,7 +63,7 @@
           <p class="kicker">Related factors, explicit assumptions</p><h2 id="exploitability-title">Detectability informs exploitation likelihood.</h2>
           <p>TSW uses EPSS, CISA KEV membership, and workload persistence when evaluating exploitation likelihood. We use different EPSS thresholds for internet-reachable and non-internet-reachable vulnerabilities. This incorporates exposure and the opportunity for an attacker to discover the affected software into the likelihood assessment.</p>
           <p>A publicly reachable service may reveal software versions or feature behavior through responses and probing. Querying a public API alone, however, may provide no way to identify the PostgreSQL version behind it. That distinction affects discovery opportunities; it does not prove a private component is undiscoverable or immune to indirect attacks.</p>
-          <p>Our method conservatively assumes vulnerabilities can be discovered. Exploitation is also assumed automatable unless evidence establishes otherwise, under <a href="https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/#assume-its-automatable">VER-EVA-AIA</a>. Exploitability remains a separate evaluation from that automation assumption.</p>
+          <p>Our method conservatively assumes vulnerabilities can be discovered if they are internet-reachable. Exploitation is also assumed automatable unless evidence establishes otherwise, under <a href="https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/#assume-its-automatable">VER-EVA-AIA</a>. Exploitability remains a separate evaluation from that automation assumption.</p>
         </section>
 
         <section id="proximate" aria-labelledby="proximate-title">
