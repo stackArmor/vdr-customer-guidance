@@ -17,7 +17,7 @@ FedRAMP VDR / VER transition.
   and attack-path examples, RADAR TRACE research, exploitability/detectability,
   chaining, remediation-component examples, integration criteria, and peer feedback.
 - `agency-transition.html`: agency discussion questions, continued DoD workflow
-  support, possible parallel processes, and POA&M-style companion reporting under
+  support, possible parallel processes, and companion views of VDR results under
   consideration.
 - `assets/site.css`, `assets/theme.js`, and `assets/site.js`: responsive light / dark
   styling, saved appearance preferences, and clipboard interactions.
@@ -159,8 +159,10 @@ The agency-transition guide records the October 24 customer clarification:
 legacy vulnerability workflows remain functional for DoD customers; mixed
 DoD/FedRAMP systems may need parallel processes for an uncertain duration.
 Customers should consult their sponsors about acceptance and expectations.
-POA&M-style companion reporting is under consideration, with no availability
-commitment. Explain its potentially different identifiers and VDR-based PAIN,
+A tabular companion view of VDR results is under consideration, potentially
+using POA&M-style columns, with no availability commitment. This does not offer
+a separate traditional POA&M process for FedCiv agencies; continued legacy
+workflow support is specific to DoD workloads. Explain its potentially different identifiers and VDR-based PAIN,
 likelihood, reachability, and due dates. Agency readiness discussions do not
 replace the published FedRAMP adoption milestone. Invite agency feedback through
 the established customer channels.

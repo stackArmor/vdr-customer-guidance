@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102d3b">
   <title>Agency coordination during the VDR transition | stackArmor</title>
-  <meta name="description" content="Coordinate FedRAMP and DoD agency expectations, continued vulnerability workflows, and possible POA&M-style reporting during the VDR transition.">
+  <meta name="description" content="Coordinate FedRAMP and DoD agency expectations, continued vulnerability workflows, and possible companion views of VDR reporting during the transition.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script src="assets/theme.js?v=7749bf7907d3"></script>
   <link rel="stylesheet" href="assets/site.css?v=af117a81518a">
@@ -17,13 +17,14 @@
   <main id="main">
     <section class="guide-hero"><div class="wrap"><a class="back-link" href="./#questions">← Customer FAQ</a><p class="eyebrow">Agency coordination / VDR and VER transition</p><h1>Keep your agency<br><em>in the conversation.</em></h1><p class="lede">Discuss the transition with your agency contacts now: what they expect to receive, how they will interpret the new evaluations, and which processes must continue for your authorization.</p></div></section>
     <div class="wrap guide-layout">
-      <nav class="guide-nav" aria-label="Agency transition sections"><a href="#agency-readiness">Coordinate FedRAMP reporting</a><a href="#dod-workloads">DoD and parallel workflows</a><a href="#reporting-options">POA&amp;M-style reporting options</a><a href="#feedback">Share agency feedback</a></nav>
+      <nav class="guide-nav" aria-label="Agency transition sections"><a href="#agency-readiness">Coordinate FedRAMP reporting</a><a href="#dod-workloads">DoD and parallel workflows</a><a href="#reporting-options">VDR companion reporting</a><a href="#feedback">Share agency feedback</a></nav>
       <div class="guide-content">
         <section id="agency-readiness" aria-labelledby="agency-readiness-title">
           <p class="kicker">Start with the receiving agency</p><h2 id="agency-readiness-title">Agree on how the transition will work.</h2>
           <p>FedRAMP’s <a href="https://www.fedramp.gov/notices/0014/">published adoption date for VDR and VER is December 7, 2026</a>, aligned with CISA BOD 26-04. Ask your agency contacts how they are preparing their review and reporting processes for that transition and what they need from your team. Coordinate expectations against the published milestone.</p>
+          <p>For FedCiv customers, reporting options under consideration support the VDR / VER transition. They do not represent an offer to maintain a separate traditional CVSS-based POA&amp;M process. The continued legacy workflow described below applies to DoD workloads.</p>
           <p>Useful questions for the agency’s authorization and continuous-monitoring contacts include:</p>
-          <ul><li>How are you preparing to receive and review VDR / VER evaluations and reporting?</li><li>Which reports and supporting evidence do you expect during and after the transition? Will reviewers still expect a traditional POA&amp;M or a familiar tabular view?</li><li>How should we explain PAIN ratings, exploitation likelihood, internet reachability, and the resulting remediation dates to your reviewers?</li><li>Which existing agency-specific artifacts or processes must continue, and how should findings be correlated across the old and new reports?</li><li>Who should resolve reporting questions, and how should we communicate changes and exceptions?</li></ul>
+          <ul><li>How are you preparing to receive and review VDR / VER evaluations and reporting?</li><li>Which VDR / VER reports and supporting evidence will your reviewers use, and would a familiar tabular view of those results help?</li><li>How should we explain PAIN ratings, exploitation likelihood, internet reachability, and the resulting remediation dates to your reviewers?</li><li>How should historical asset identifiers and findings be correlated with the VDR reports?</li><li>Who should resolve reporting questions, and how should we communicate changes and exceptions?</li></ul>
           <p>Share this guidance and the <a href="evaluation-method.html">evaluation-method explanation</a> with your agency contacts so the discussion starts from the same information.</p>
         </section>
 
@@ -36,8 +37,8 @@
         </section>
 
         <section id="reporting-options" aria-labelledby="reporting-options-title">
-          <p class="kicker">An option under consideration</p><h2 id="reporting-options-title">A familiar layout would still carry new evaluations.</h2>
-          <p>stackArmor is exploring a POA&amp;M-style companion artifact alongside applicable structured VDR JSON reports. The goal would be to give agency reviewers a familiar way to understand the information and maintain continuity during the transition. This is an option under consideration; discuss availability and your agency’s needs with your stackArmor team.</p>
+          <p class="kicker">An option under consideration</p><h2 id="reporting-options-title">A companion view of VDR results.</h2>
+          <p>stackArmor is exploring a tabular companion report alongside applicable structured VDR JSON reports. It could use familiar POA&amp;M-style columns to help agency reviewers interpret VDR findings. This would be a presentation of the VDR evaluation and reporting process, not support for a separate traditional POA&amp;M workflow for FedCiv agencies. The companion view remains under consideration.</p>
           <p>Such a report would be fundamentally different from the traditional POA&amp;M because it would represent VDR-based findings and decisions:</p>
           <div class="table-wrap"><table aria-label="How a proposed VDR companion report would differ from a traditional POA&M"><thead><tr><th scope="col">Report element</th><th scope="col">What agency reviewers should expect</th></tr></thead><tbody>
             <tr><th scope="row">Asset identifiers</th><td>Identifiers may change as findings are associated with the workload or configuration component that must be updated for a lasting fix. Discuss how reviewers should correlate affected resources between reports.</td></tr>
@@ -45,12 +46,12 @@
             <tr><th scope="row">Remediation timing</th><td>Due dates would follow the applicable VDR determination using PAIN, Certification Class, exploitation likelihood, and internet reachability, with applicable KEV deadlines also considered. These can differ from traditional CVSS-based timelines.</td></tr>
             <tr><th scope="row">Supporting context</th><td>The report would need to explain the PAIN / LEV / IRV decisions and provide references back to the underlying findings and evidence.</td></tr>
           </tbody></table></div>
-          <p>Ask the agency whether that presentation would help its reviewers and what fields, identifiers, or explanations it needs. A familiar report layout can help communication while preserving the meaning of the new evaluation.</p>
+          <p>Ask the agency which fields, identifiers, or explanations would help its reviewers understand the VDR results. A familiar report layout can help communication while preserving the meaning of the new evaluation.</p>
         </section>
 
         <section id="feedback" aria-labelledby="feedback-title">
           <p class="kicker">Help shape the transition</p><h2 id="feedback-title">Bring agency questions and suggestions back to us.</h2>
-          <p>stackArmor is exploring reporting and communication options to help customers maintain trust with their agencies during this transition. We welcome other ideas from you and your agency contacts.</p>
+          <p>stackArmor is exploring reporting and communication options to help customers explain VDR results and maintain trust with their agencies during this transition. We welcome suggestions that improve understanding of the new process.</p>
           <p>Share sponsor guidance, requested report formats, unclear mappings, and suggestions through your engagement manager or shared stackArmor Slack channel. We can discuss the options, identify what is practical, and update this guidance as common questions emerge.</p>
           <p>For the underlying approach, see <a href="./#evaluation-method">the eight evaluation factors</a>, <a href="evaluation-method.html">the detailed methodology</a>, and <a href="engineer-guide.html">the engineering guide</a>. You can <a href="./#updates">subscribe to guidance updates</a> as the transition develops.</p>
         </section>
