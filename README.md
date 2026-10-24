@@ -143,7 +143,14 @@ RADAR TRACE's public README and reachability-gates documentation support the
 attack-path discussion; distinguish research being incorporated from current
 TSW behavior. Document differing EPSS thresholds for IRV and NIRV without
 publishing their numeric values. Keep blocked-path examples conditional on
-verified protocol, route, and source restrictions and consider alternative paths.
+verified protocol, route, and source restrictions. Strictly curated public-IP
+allowlists tied to trusted entities, with all other sources blocked at the edge,
+can support IRV-to-NIRV reclassification. Tie third-party documentation questions
+to concrete protocol, direction, source-restriction, and discovery decisions;
+absence of clear public documentation is not a claim that vendors ignore them.
+Describe the lower IRV EPSS threshold relative to NIRV as the explicit mechanism
+by which detectability influences the likelihood determination, without numeric
+threshold values.
 
 Keep the visible update date and milestone text current when plans change.
 Distinguish stackArmor rollout plans from regulatory dates. Keep customer
