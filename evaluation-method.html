@@ -63,7 +63,7 @@
           <p class="kicker">Related factors, explicit assumptions</p><h2 id="exploitability-title">Detectability informs exploitation likelihood.</h2>
           <p>TSW explicitly incorporates detectability into exploitation likelihood by applying a lower EPSS threshold to internet-reachable vulnerabilities (IRV) than to non-internet-reachable vulnerabilities (NIRV). At the same EPSS score, reachability can therefore change the LEV / NLEV determination. This exposure-based threshold selection is a concrete way our method evaluates detectability. CISA KEV membership and workload persistence also inform exploitation likelihood.</p>
           <p>The rationale is that internet-reachable software can be easier to identify and probe: responses may reveal versions or vulnerable feature behavior. Querying a public API alone may provide no way to identify the PostgreSQL version behind it. We account for that difference in discovery opportunity through the selected threshold.</p>
-          <p>Our method conservatively assumes vulnerabilities can be discovered if they are internet-reachable. Exploitation is also assumed automatable unless evidence establishes otherwise, under <a href="https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/#assume-its-automatable">VER-EVA-AIA</a>. Exploitability remains a separate evaluation from that automation assumption.</p>
+          <p>Our method conservatively assumes vulnerabilities can be discovered if they are internet-reachable.</p>
         </section>
 
         <section id="proximate" aria-labelledby="proximate-title">

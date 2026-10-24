@@ -118,16 +118,16 @@ avoided; customers use approved services and configurations.
 ## Content maintenance
 
 The overview's `#evaluation-method` section maps TSW's method to the eight
-VER-EVA-EFA factors. It separates exploitation likelihood from the conservative
-automation assumption and explains how asset classification incorporates
-privilege. The detailed method page defines a **remediation component** as the configuration
+VER-EVA-EFA factors. It explains how detectability informs exploitation
+likelihood and how asset classification incorporates privilege. The detailed
+method page defines a **remediation component** as the configuration
 component that must change for a fix to survive restart, redeployment, or scaling;
 the overview retains `#prevalence` as a short explanation and link.
 Container examples retain each image reference, including init containers;
 auto-scaling VM examples identify the ASG and its launch configuration/template.
 Counts describe response scope without requiring an independent PAIN multiplier.
 Customer-supplied method clarifications and the reviewed eight-factor analysis
-inform this mapping. FedRAMP VER-EVA-EFA and VER-EVA-AIA were checked against
+inform this mapping. FedRAMP VER-EVA-EFA was checked against
 the linked official reference on October 23, 2026. The mapping describes the
 evaluation method; individual evaluation timing and operating results remain
 separate. Keep potential chaining assumptions distinct from demonstrated paths.

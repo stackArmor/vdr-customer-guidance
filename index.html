@@ -99,7 +99,6 @@
             <tr><th scope="row">Known threats</th><td>CISA KEV, EPSS enrichment, and vulnerability references inform threat evaluation and the likely / non-likely exploitation determination (LEV / NLEV). KEV records identify known exploitation and required action. When an applicable KEV due date precedes the calculated FedRAMP deadline, the earlier date governs.</td></tr>
           </tbody>
         </table></div>
-        <p class="small"><strong>Automation is a separate assumption.</strong> Under <a href="https://www.fedramp.gov/2026/reference/rev5/d/vulnerability-evaluation-and-reporting/#assume-its-automatable">VER-EVA-AIA</a>, our method assumes exploitation can be automated unless evidence proves otherwise. EPSS and workload persistence evaluate exploitability; they do not depend on a claim that exploitation must be manual.</p>
         <p class="small">Criticality, vulnerability impact, and agency scope determine PAIN. PAIN, Certification Class, exploitation likelihood, and internet reachability then select the remediation timeframe. Prevalence and the other contextual factors also guide investigation, grouping, and remediation scope; considering a factor does not require a separate numeric score or a PAIN increase.</p>
 
         <p class="small" id="prevalence"><strong>Fix every remediation component.</strong> This is the configuration component you must update so a fix survives restart, redeployment, or scaling. <a href="evaluation-method.html#prevalence">See the container / init-container and Auto Scaling Group examples.</a></p>
