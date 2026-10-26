@@ -12,7 +12,7 @@ FedRAMP VDR / VER transition.
   AI and manual options, metadata upkeep, rollout sequence, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
   Kubernetes classification, profile association, ongoing coverage updates,
-  and optional container scanning, with Kubernetes-specific scan commands.
+  and in-cluster or optional local/SDLC container scanning, with Kubernetes-specific scan commands.
 - `evaluation-method.html`: vendor evaluation history, decision transparency, protocol
   and attack-path examples, RADAR TRACE research, exploitability/detectability,
   chaining, remediation-component examples, integration criteria, and peer feedback.
@@ -52,8 +52,7 @@ python3 scripts/version-assets.py
 
 ## Readiness checklist
 
-The seven-step checklist lives at `index.html#get-started`, immediately after
-the hero. It saves only completion flags and the Kubernetes applicability choice
+The eight-step checklist lives at `index.html#get-started`. It saves only completion flags and the Kubernetes applicability choice
 in the browser under `stackarmor-vdr-readiness-v1`. No form submission, analytics,
 or network request transmits that progress. Clearing site storage removes it;
 blocked storage leaves the checklist usable for the current visit with a notice.
