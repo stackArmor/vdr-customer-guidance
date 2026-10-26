@@ -8,7 +8,7 @@ FedRAMP VDR / VER transition.
 ## Contents
 
 - `index.html`: customer overview, eight-factor evaluation overview and links to the detailed method,
-  metadata explanation, required setup and optional scanning,
+  browser-saved readiness checklist, completion and handoff checks, metadata explanation, required setup and optional local/SDLC scanning,
   AI and manual options, metadata upkeep, rollout sequence, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
   Kubernetes classification, profile association, ongoing coverage updates,
@@ -51,6 +51,32 @@ JavaScript, refresh the URLs before committing:
 python3 scripts/version-assets.py
 ```
 
+## Readiness checklist
+
+The seven-step checklist lives at `index.html#get-started`, immediately after
+the hero. It saves only completion flags and the Kubernetes applicability choice
+in the browser under `stackarmor-vdr-readiness-v1`. No form submission, analytics,
+or network request transmits that progress. Clearing site storage removes it;
+blocked storage leaves the checklist usable for the current visit with a notice.
+It records customer-confirmed progress and does not inspect infrastructure or
+verify TSW onboarding. Existing keyboard controls and light/dark colors apply.
+
+The overview and engineering guide distinguish Kubernetes production readiness,
+completed cloud metadata preparation, and the final stackArmor-owned onboarding
+step. Deployment and testing remain subject to approved in-boundary CRs.
+AI guidance describes fully open-source plain-English instructions, inspectable
+scripts, customer-controlled CLI credentials, and metadata-only scope with an
+approved agent.
+
+### Pending answers and editorial TODOs
+
+- Existing findings, POA&Ms, deviation requests, and remediation deadlines:
+  answer pending in the FAQ, linked to the agency-transition page.
+- Coverage-gap causes: confirm whether newly added resources and a
+  non-representative environment are the exhaustive intended list. The cloud
+  skill also reports authentication, CLI, quota, and transport failures as gaps
+  (`generate-cloud-vdr-config/SKILL.md`, installed v0.12.1, line 167).
+
 ## Editorial sources
 
 The supplied **stackArmor VDR guidance overview**, dated October 23, 2026,
@@ -89,10 +115,12 @@ need both outputs. Corresponding update skills are for later maintenance;
 other published skills are deprecated or intended for stackArmor employees
 and are shared for transparency.
 
-Classification and profile association are required customer work now. The
-Trivy VDR container scanner is optional: customers can use it to understand
-PAIN scores locally or integrate it into their SDLC to catch high-PAIN
-vulnerabilities before deployment. The earlier Kubernetes testing guide supplied the
+Classification and profile association are required customer work now.
+Kubernetes production readiness requires the in-cluster plugin, generated
+ConfigMap, latest plugin run, and metadata association with no default profiles.
+Local exploration and SDLC scanning are optional additions. Cloud metadata
+preparation is complete once the YAML is uploaded and stackArmor confirms
+TSW’s cloud identity has read access; TSW onboarding remains a stackArmor step. The earlier Kubernetes testing guide supplied the
 initial evaluation framing; current customer instructions take precedence.
 
 Docker Swarm scanning is available in the plugin, but the agent skills do not
