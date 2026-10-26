@@ -17,8 +17,7 @@ FedRAMP VDR / VER transition.
   and attack-path examples, RADAR TRACE research, exploitability/detectability,
   chaining, remediation-component examples, integration criteria, and peer feedback.
 - `agency-transition.html`: agency discussion questions, continued DoD/DoW workflow
-  support, possible parallel processes, and companion views of VDR results under
-  consideration.
+  support, possible parallel processes, and a planned CSV view of VDR results.
 - `assets/site.css`, `assets/theme.js`, and `assets/site.js`: responsive light / dark
   styling, saved appearance preferences, and clipboard interactions.
 
@@ -70,8 +69,7 @@ approved agent.
 
 ### Pending answers and editorial TODOs
 
-- Existing findings, POA&Ms, deviation requests, and remediation deadlines:
-  answer pending in the FAQ, linked to the agency-transition page.
+- Deviation requests: their treatment during the transition still needs guidance.
 - Coverage-gap causes: confirm whether newly added resources and a
   non-representative environment are the exhaustive intended list. The cloud
   skill also reports authentication, CLI, quota, and transport failures as gaps
@@ -187,8 +185,8 @@ The agency-transition guide records the October 24 customer clarification:
 legacy vulnerability workflows remain functional for DoD/DoW customers; mixed
 systems supporting both DoD/DoW and FedRAMP may need parallel processes for an uncertain duration.
 Customers should consult their sponsors about acceptance and expectations.
-A tabular companion view of VDR results is under consideration, potentially
-using POA&M-style columns, with no availability commitment. This does not offer
+A CSV POA&M export of VDR results is planned using the previous FedRAMP
+template, with no availability date specified. This does not offer
 a separate traditional POA&M process for FedCiv agencies; continued legacy
 workflow support is specific to DoD/DoW workloads. Explain its potentially different identifiers and VDR-based PAIN,
 likelihood, reachability, and due dates. Agency readiness discussions do not

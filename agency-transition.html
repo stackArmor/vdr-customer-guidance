@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102d3b">
   <title>Agency coordination during the VDR transition | stackArmor</title>
-  <meta name="description" content="Coordinate FedRAMP and DoD/DoW agency expectations, continued vulnerability workflows, and possible companion views of VDR reporting during the transition.">
+  <meta name="description" content="Coordinate FedRAMP and DoD/DoW agency expectations, continued vulnerability workflows, and a planned CSV view of VDR reporting during the transition.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script src="assets/theme.js?v=7749bf7907d3"></script>
   <link rel="stylesheet" href="assets/site.css?v=b453b871b77f">
@@ -22,7 +22,7 @@
         <section id="agency-readiness" aria-labelledby="agency-readiness-title">
           <p class="kicker">Start with the receiving agency</p><h2 id="agency-readiness-title">Agree on how the transition will work.</h2>
           <p>FedRAMP’s <a href="https://www.fedramp.gov/notices/0014/">published adoption date for VDR and VER is December 7, 2026</a>, aligned with CISA BOD 26-04. Ask your agency contacts how they are preparing their review and reporting processes for that transition and what they need from your team. Coordinate expectations against the published milestone.</p>
-          <p>For FedCiv customers, reporting options under consideration support the VDR / VER transition. They do not represent an offer to maintain a separate traditional CVSS-based POA&amp;M process. The continued legacy workflow described below applies to DoD/DoW workloads.</p>
+          <p>For FedCiv customers, the planned CSV export supports the VDR / VER transition. It does not represent an offer to maintain a separate traditional CVSS-based POA&amp;M process. The continued legacy workflow described below applies to DoD/DoW workloads.</p>
           <p>Useful questions for the agency’s authorization and continuous-monitoring contacts include:</p>
           <ul><li>How are you preparing to receive and review VDR / VER evaluations and reporting?</li><li>Which VDR / VER reports and supporting evidence will your reviewers use, and would a familiar tabular view of those results help?</li><li>How should we explain PAIN ratings, exploitation likelihood, internet reachability, and the resulting remediation dates to your reviewers?</li><li>How should historical asset identifiers and findings be correlated with the VDR reports?</li><li>Who should resolve reporting questions, and how should we communicate changes and exceptions?</li></ul>
           <p>Share this guidance and the <a href="evaluation-method.html">evaluation-method explanation</a> with your agency contacts so the discussion starts from the same information.</p>
@@ -37,10 +37,10 @@
         </section>
 
         <section id="reporting-options" aria-labelledby="reporting-options-title">
-          <p class="kicker">An option under consideration</p><h2 id="reporting-options-title">A companion view of VDR results.</h2>
-          <p>stackArmor is exploring a tabular companion report alongside applicable structured VDR JSON reports. It could use familiar POA&amp;M-style columns to help agency reviewers interpret VDR findings. This would be a presentation of the VDR evaluation and reporting process, not support for a separate traditional POA&amp;M workflow for FedCiv agencies. The companion view remains under consideration.</p>
-          <p>Such a report would be fundamentally different from the traditional POA&amp;M because it would represent VDR-based findings and decisions:</p>
-          <div class="table-wrap"><table aria-label="How a proposed VDR companion report would differ from a traditional POA&M"><thead><tr><th scope="col">Report element</th><th scope="col">What agency reviewers should expect</th></tr></thead><tbody>
+          <p class="kicker">A familiar reporting format</p><h2 id="reporting-options-title">A companion view of VDR results.</h2>
+          <p>stackArmor plans to provide a CSV POA&amp;M export alongside applicable structured VDR JSON reports. It will use the familiar previous FedRAMP POA&amp;M template while reflecting TSW’s VDR finding scopes and due dates. This presents VDR results; it does not establish a separate traditional POA&amp;M workflow for FedCiv agencies.</p>
+          <p>The export will represent VDR-based findings and decisions:</p>
+          <div class="table-wrap"><table aria-label="How the VDR companion report differs from a traditional POA&M"><thead><tr><th scope="col">Report element</th><th scope="col">What agency reviewers should expect</th></tr></thead><tbody>
             <tr><th scope="row">Asset identifiers</th><td>Identifiers may change as findings are associated with the workload or configuration component that must be updated for a lasting fix. Discuss how reviewers should correlate affected resources between reports.</td></tr>
             <tr><th scope="row">Impact and severity</th><td>Evaluated impact would reflect PAIN and agency / workload context. A PAIN rating is not a direct conversion of a raw CVSS severity.</td></tr>
             <tr><th scope="row">Remediation timing</th><td>Due dates would follow the applicable VDR determination using PAIN, Certification Class, exploitation likelihood, and internet reachability, with applicable KEV deadlines also considered. These can differ from traditional CVSS-based timelines.</td></tr>
@@ -58,6 +58,6 @@
       </div>
     </div>
   </main>
-  <footer class="footer wrap"><div class="footer-top"><a class="brand" href="https://stackarmor.com">stack<strong>Armor</strong></a><div class="footer-links"><a href="./">Customer overview</a><a href="./#questions">FAQ</a><a href="engineer-guide.html">Engineering guide</a><a href="./#updates">Subscribe to updates</a><a href="#main">Back to top ↑</a></div></div><p class="footer-note">Customer guidance · Updated October 24, 2026. Coordinate authorization-specific reporting and sponsor expectations with your agency and stackArmor team.</p></footer>
+  <footer class="footer wrap"><div class="footer-top"><a class="brand" href="https://stackarmor.com">stack<strong>Armor</strong></a><div class="footer-links"><a href="./">Customer overview</a><a href="./#questions">FAQ</a><a href="engineer-guide.html">Engineering guide</a><a href="./#updates">Subscribe to updates</a><a href="#main">Back to top ↑</a></div></div><p class="footer-note">Customer guidance · Updated October 26, 2026. Coordinate authorization-specific reporting and sponsor expectations with your agency and stackArmor team.</p></footer>
 </body>
 </html>
