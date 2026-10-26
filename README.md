@@ -67,13 +67,6 @@ AI guidance describes fully open-source plain-English instructions, inspectable
 scripts, customer-controlled CLI credentials, and metadata-only scope with an
 approved agent.
 
-### Pending answers and editorial TODOs
-
-- Coverage-gap causes: confirm whether newly added resources and a
-  non-representative environment are the exhaustive intended list. The cloud
-  skill also reports authentication, CLI, quota, and transport failures as gaps
-  (`generate-cloud-vdr-config/SKILL.md`, installed v0.12.1, line 167).
-
 ## Editorial sources
 
 The supplied **stackArmor VDR guidance overview**, dated October 23, 2026,
