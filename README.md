@@ -8,7 +8,7 @@ FedRAMP VDR / VER transition.
 ## Contents
 
 - `index.html`: customer overview, eight-factor evaluation overview and links to the detailed method,
-  metadata explanation, required setup and optional scanning,
+  browser-saved readiness checklist, completion and handoff checks, metadata explanation, required setup and optional local/SDLC scanning,
   AI and manual options, metadata upkeep, rollout sequence, prominent FAQs, and update subscriptions.
 - `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
   Kubernetes classification, profile association, ongoing coverage updates,
@@ -17,8 +17,7 @@ FedRAMP VDR / VER transition.
   and attack-path examples, RADAR TRACE research, exploitability/detectability,
   chaining, remediation-component examples, integration criteria, and peer feedback.
 - `agency-transition.html`: agency discussion questions, continued DoD/DoW workflow
-  support, possible parallel processes, and companion views of VDR results under
-  consideration.
+  support, possible parallel processes, and a planned CSV view of VDR results.
 - `assets/site.css`, `assets/theme.js`, and `assets/site.js`: responsive light / dark
   styling, saved appearance preferences, and clipboard interactions.
 
@@ -50,6 +49,23 @@ JavaScript, refresh the URLs before committing:
 ```sh
 python3 scripts/version-assets.py
 ```
+
+## Readiness checklist
+
+The seven-step checklist lives at `index.html#get-started`, immediately after
+the hero. It saves only completion flags and the Kubernetes applicability choice
+in the browser under `stackarmor-vdr-readiness-v1`. No form submission, analytics,
+or network request transmits that progress. Clearing site storage removes it;
+blocked storage leaves the checklist usable for the current visit with a notice.
+It records customer-confirmed progress and does not inspect infrastructure or
+verify TSW onboarding. Existing keyboard controls and light/dark colors apply.
+
+The overview and engineering guide distinguish Kubernetes production readiness,
+completed cloud metadata preparation, and the final stackArmor-owned onboarding
+step. Deployment and testing remain subject to approved in-boundary CRs.
+AI guidance describes fully open-source plain-English instructions, inspectable
+scripts, customer-controlled CLI credentials, and metadata-only scope with an
+approved agent.
 
 ## Editorial sources
 
@@ -89,10 +105,12 @@ need both outputs. Corresponding update skills are for later maintenance;
 other published skills are deprecated or intended for stackArmor employees
 and are shared for transparency.
 
-Classification and profile association are required customer work now. The
-Trivy VDR container scanner is optional: customers can use it to understand
-PAIN scores locally or integrate it into their SDLC to catch high-PAIN
-vulnerabilities before deployment. The earlier Kubernetes testing guide supplied the
+Classification and profile association are required customer work now.
+Kubernetes production readiness requires the in-cluster plugin, generated
+ConfigMap, latest plugin run, and metadata association with no default profiles.
+Local exploration and SDLC scanning are optional additions. Cloud metadata
+preparation is complete once the YAML is uploaded and stackArmor confirms
+TSW’s cloud identity has read access; TSW onboarding remains a stackArmor step. The earlier Kubernetes testing guide supplied the
 initial evaluation framing; current customer instructions take precedence.
 
 Docker Swarm scanning is available in the plugin, but the agent skills do not
@@ -159,8 +177,8 @@ The agency-transition guide records the October 24 customer clarification:
 legacy vulnerability workflows remain functional for DoD/DoW customers; mixed
 systems supporting both DoD/DoW and FedRAMP may need parallel processes for an uncertain duration.
 Customers should consult their sponsors about acceptance and expectations.
-A tabular companion view of VDR results is under consideration, potentially
-using POA&M-style columns, with no availability commitment. This does not offer
+A CSV POA&M export of VDR results is planned using the previous FedRAMP
+template, with no availability date specified. This does not offer
 a separate traditional POA&M process for FedCiv agencies; continued legacy
 workflow support is specific to DoD/DoW workloads. Explain its potentially different identifiers and VDR-based PAIN,
 likelihood, reachability, and due dates. Agency readiness discussions do not
