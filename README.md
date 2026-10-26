@@ -69,7 +69,6 @@ approved agent.
 
 ### Pending answers and editorial TODOs
 
-- Deviation requests: their treatment during the transition still needs guidance.
 - Coverage-gap causes: confirm whether newly added resources and a
   non-representative environment are the exhaustive intended list. The cloud
   skill also reports authentication, CLI, quota, and transport failures as gaps
