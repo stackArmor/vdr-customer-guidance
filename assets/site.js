@@ -17,6 +17,17 @@
     });
   });
 
+  document.querySelectorAll('[data-ai-menu]').forEach(menu => {
+    document.addEventListener('click', event => {
+      if (menu.open && !menu.contains(event.target)) menu.open = false;
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !menu.open) return;
+      menu.open = false;
+      menu.querySelector('summary').focus();
+    });
+  });
+
   const checklist = document.querySelector('[data-readiness-checklist]');
   if (!checklist) return;
 
