@@ -19,7 +19,7 @@ FedRAMP VDR / VER transition.
 - `agency-transition.html`: agency discussion questions, continued DoD/DoW workflow
   support, possible parallel processes, and a planned CSV view of VDR results.
 - `assets/site.css`, `assets/theme.js`, and `assets/site.js`: responsive light / dark
-  styling, saved appearance preferences, and clipboard interactions.
+  styling, saved appearance preferences, clipboard interactions, and the Ask AI menu.
 
 ## Preview and publishing
 
@@ -49,6 +49,17 @@ JavaScript, refresh the URLs before committing:
 ```sh
 python3 scripts/version-assets.py
 ```
+
+## Ask AI about this page
+
+Each page has an **Ask AI about this page** button at the top right of the
+content. Its menu briefly explains the option and links to Claude
+(`claude.ai/new?q=`) and ChatGPT (`chatgpt.com/?q=`). Each opens a new chat
+whose prompt contains the published page URL and asks the agent to summarize
+it and answer questions from it. Links are static per page; if a page is added
+or renamed, update its prompt URL. Once that button scrolls out of view, a
+floating copy appears in the bottom-right corner so the option stays in reach;
+it hides again when the top button returns. Both are hidden when printing.
 
 ## Readiness checklist
 
