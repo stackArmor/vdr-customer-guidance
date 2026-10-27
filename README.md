@@ -57,7 +57,9 @@ content. Its menu briefly explains the option and links to Claude
 (`claude.ai/new?q=`) and ChatGPT (`chatgpt.com/?q=`). Each opens a new chat
 whose prompt contains the published page URL and asks the agent to summarize
 it and answer questions from it. Links are static per page; if a page is added
-or renamed, update its prompt URL. The button is hidden when printing.
+or renamed, update its prompt URL. Once that button scrolls out of view, a
+floating copy appears in the bottom-right corner so the option stays in reach;
+it hides again when the top button returns. Both are hidden when printing.
 
 ## Readiness checklist
 

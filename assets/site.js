@@ -17,6 +17,21 @@
     });
   });
 
+  // A floating copy of the Ask AI menu appears once the top one scrolls out of view.
+  const aiRow = document.querySelector('.ai-row');
+  if (aiRow && 'IntersectionObserver' in window) {
+    const float = document.createElement('div');
+    float.className = 'ai-float';
+    float.append(aiRow.querySelector('[data-ai-menu]').cloneNode(true));
+    document.body.append(float);
+    const floatMenu = float.querySelector('[data-ai-menu]');
+    new IntersectionObserver(([entry]) => {
+      const visible = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+      float.classList.toggle('is-visible', visible);
+      if (!visible) floatMenu.open = false;
+    }).observe(aiRow);
+  }
+
   document.querySelectorAll('[data-ai-menu]').forEach(menu => {
     document.addEventListener('click', event => {
       if (menu.open && !menu.contains(event.target)) menu.open = false;
