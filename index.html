@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#102d3b">
   <title>VDR / VER customer readiness | stackArmor</title>
-  <meta name="description" content="Prepare for stackArmor TSW 4.0 and FedRAMP VDR/VER. Track readiness, verify Kubernetes metadata, and hand off cloud assignments for TSW onboarding.">
+  <meta name="description" content="Prepare for stackArmor TSW 4 and FedRAMP VDR/VER. Track readiness, verify Kubernetes metadata, and hand off cloud assignments for TSW onboarding.">
   <meta property="og:title" content="Your guide to VDR / VER readiness | stackArmor">
   <meta property="og:description" content="A browser-saved readiness checklist, Kubernetes verification, cloud metadata handoff, and answers to common VDR transition questions.">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script src="assets/theme.js?v=7749bf7907d3"></script>
-  <link rel="stylesheet" href="assets/site.css?v=ca8b52b9c991">
+  <link rel="stylesheet" href="assets/site.css?v=e3aed76b6a4a">
   <link rel="alternate" type="application/atom+xml" title="stackArmor customer guidance — main branch updates" href="https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom">
   <script defer src="assets/site.js?v=fd64253de602"></script>
 </head>
@@ -36,7 +36,7 @@
     <section class="hero wrap" aria-labelledby="page-title">
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">TSW 4.0 · VDR / VER readiness</p>
+          <p class="eyebrow">TSW 4 · VDR / VER readiness</p>
           <h1 id="page-title">A clear path to<br><em>risk-based</em><br>vulnerability response.</h1>
           <p class="lede">Before the VDR rollout, every asset needs reviewed classification metadata so TSW can score its vulnerabilities in context. This page explains what is changing, what your team needs to do, and when.</p>
           <div class="actions">
@@ -52,20 +52,31 @@
           <p class="year">2026</p>
           <div class="rule"></div>
           <h3>Prepare your metadata.<br>Practice your response.</h3>
-          <p>FedRAMP’s published adoption date for VDR and VER. stackArmor is coordinating the TSW 4.0 transition with customer teams.</p>
+          <p>FedRAMP’s published adoption date for VDR and VER. stackArmor is coordinating the TSW 4 transition with customer teams.</p>
           <p><a href="https://www.fedramp.gov/notices/0014/">Read the FedRAMP notice <span aria-hidden="true">↗</span></a></p>
-          <div class="panel-bottom"><span>Customer readiness guide</span><span>26 Oct 2026</span></div>
+          <div class="panel-bottom"><span>Customer readiness guide</span><span>29 Oct 2026</span></div>
         </aside>
       </div>
     </section>
 
     <section class="dark-section" id="timeline" aria-labelledby="timeline-title">
       <div class="wrap">
-        <div class="section-heading"><div><p class="kicker">01 / Timeline</p><h2 id="timeline-title">Key dates for<br>the transition.</h2></div><div class="intro"><p>This reflects the stackArmor customer rollout plan as of October 26, 2026. Your stackArmor team will coordinate the system-specific change request and implementation details with you.</p></div></div>
+        <div class="section-heading"><div><p class="kicker">01 / Timeline</p><h2 id="timeline-title">Key dates for<br>the transition.</h2></div><div class="intro"><p>This reflects the stackArmor customer rollout plan as of October 29, 2026. Your stackArmor team will coordinate the system-specific change request and implementation details with you.</p></div></div>
         <div class="timeline">
           <div class="milestone"><p class="when">Now · Phase 1</p><h3>Classify and associate.</h3><p>Complete and publish reviewed classification metadata for your assets, and prepare your response process for deadlines measured in days and weeks.</p></div>
-          <div class="milestone"><p class="when">Nov 9–13, 2026 · Planned</p><h3>Receive TSW VDR features.</h3><p>Customers begin receiving TSW VDR features the week of Veterans Day. Your stackArmor team will coordinate the GitLab change request, review, and approval for your environment.</p></div>
-          <div class="milestone"><p class="when">December 7, 2026</p><h3>Target production readiness.</h3><p>Complete the coordinated transition for the FedRAMP VDR / VER adoption milestone.</p><a class="text-link" href="https://www.fedramp.gov/notices/0014/">Official FedRAMP notice <span aria-hidden="true">↗</span></a></div>
+          <div class="milestone"><p class="when">Nov 9–13, 2026 · Planned</p><h3>Deploy supporting components.</h3><p>Deployment of the components supporting TSW VDR begins the week of Veterans Day. Your stackArmor team will coordinate the GitLab change request, review, and approval for your environment.</p></div>
+          <div class="milestone"><p class="when">December 7, 2026</p><h3>Complete the transition.</h3><p>Have the risk-based vulnerability process in place for the FedRAMP VDR / VER adoption milestone and applicable CISA BOD 26-04 requirements.</p><a class="text-link" href="https://www.fedramp.gov/notices/0014/">Official FedRAMP notice <span aria-hidden="true">↗</span></a></div>
+        </div>
+        <div class="rollout-note"><h3>Activation follows customer readiness.</h3><p>The November deployment puts supporting components in place. stackArmor will not activate customer scanning or other customer-specific VDR components until your team is ready. We will coordinate the rollout with you, including review and approval of the classification metadata generated by the skills, the required handoff, and the applicable change process. Use the <a href="#get-started">readiness checklist</a> to prepare.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="compliance-dates" aria-labelledby="compliance-dates-title">
+      <div class="wrap">
+        <div class="section-heading"><div><p class="kicker">Compliance deadlines</p><h2 id="compliance-dates-title">Plan for December 7.</h2></div><div class="intro"><p>Start readiness work now so we can coordinate activation in time for your requirements.</p></div></div>
+        <div class="two-paths">
+          <div class="path"><h3>FedRAMP customers</h3><p>Fully implement the applicable VDR and VER rules by <strong>December 7, 2026</strong>. If you miss that date, FedRAMP expects a corrective action plan to complete implementation by <strong>March 7, 2027</strong>. The certification grace period ends then; failure to adopt the rules puts your certification and Marketplace listing at risk.</p><p><a href="https://www.fedramp.gov/2026/providers/updating/deadlines/rev5/">FedRAMP Rev5 deadlines</a> · <a href="https://www.fedramp.gov/notices/0014/">FedRAMP adoption notice</a></p></div>
+          <div class="path"><h3>FISMA customers</h3><p>For systems supporting federal civilian agencies subject to <a href="https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk">CISA BOD 26-04</a>, plan to have a compliant risk-based vulnerability response process in place by <strong>December 7, 2026</strong>. The FedRAMP certification grace period does not extend the agency’s BOD deadline. stackArmor expects all FISMA customers to complete readiness and coordinate VDR activation by December 7.</p></div>
         </div>
       </div>
     </section>
@@ -282,7 +293,7 @@
   </main>
   <footer class="footer wrap">
     <div class="footer-top"><a class="brand" href="https://stackarmor.com" aria-label="stackArmor"><img class="brand-logo brand-logo-light" src="assets/stackarmor-logo.png" alt="stackArmor" width="97" height="38"><img class="brand-logo brand-logo-dark" src="assets/stackarmor-logo-white.png" alt="stackArmor" width="97" height="38"></a><div class="footer-links"><a href="#questions">FAQ</a><a href="#updates">Subscribe to updates</a><a href="https://github.com/stackArmor/vdr-customer-guidance">Page source</a><a href="engineer-guide.html#sources">Sources &amp; references</a><a href="#main">Back to top ↑</a></div></div>
-    <p class="footer-note">Customer guidance · Updated October 26, 2026. The Veterans Day week rollout is a stackArmor plan; applicable requirements remain governed by the current FedRAMP rules and your system’s coordinated implementation plan.</p>
+    <p class="footer-note">Customer guidance · Updated October 29, 2026. The Veterans Day week rollout is a stackArmor plan; applicable requirements remain governed by the current FedRAMP rules and your system’s coordinated implementation plan.</p>
   </footer>
 </body>
 </html>

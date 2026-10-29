@@ -1,6 +1,6 @@
 # stackArmor VDR / VER customer guidance
 
-Customer communications and practical readiness guidance for the TSW 4.0 and
+Customer communications and practical readiness guidance for the TSW 4 and
 FedRAMP VDR / VER transition.
 
 **Website:** https://stackarmor.github.io/vdr-customer-guidance/
