@@ -77,6 +77,32 @@ AI guidance describes fully open-source plain-English instructions, inspectable
 scripts, customer-controlled CLI credentials, and metadata-only scope with an
 approved agent.
 
+## December migration reporting update
+
+The homepage’s `#migration-reporting` section records the November 11, 2026
+customer communication: stackArmor will prepare two Mini-SDR readiness versions
+(implementation complete and corrective action), with each customer’s actual
+rule status reflected accurately. stackArmor will also provide sample JSON /
+machine-readable and human-readable vulnerability activity reports. Customers
+continue readiness work and their environment-specific change-request actions,
+and coordinate final review, attestation, package availability, and submission.
+These are planned deliverables; no customer reports or sensitive data are
+published in this repository.
+
+Official sources reviewed November 11, 2026:
+
+- [November 10 notice NTC-0017](https://www.fedramp.gov/notices/0017/)
+- [Migration deadlines](https://www.fedramp.gov/vdr-migration/)
+- [Required progress-report information](https://www.fedramp.gov/vdr-migration/report/)
+- [Mini-SDR schemas and templates](https://www.fedramp.gov/vdr-migration/schemas/)
+- [Per-rule corrective action plans](https://www.fedramp.gov/vdr-migration/cap/)
+- [Tentative Security Inbox collection dates and instructions](https://www.fedramp.gov/vdr-migration/emergency-test/)
+
+Keep the December 7 migration deadline distinct from the tentative December 17
+reporting response target. Recheck the official collection instructions as the
+test approaches. The compliance dates now reflect the February 3 remediation
+threshold and conditional extension beyond the March 7 grace period.
+
 ## Editorial sources
 
 The supplied **stackArmor VDR guidance overview**, dated October 23, 2026,
