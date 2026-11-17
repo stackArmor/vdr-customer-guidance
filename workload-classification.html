@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102d3b">
+  <title>Why your team classifies its workloads | stackArmor</title>
+  <meta name="description" content="Why your engineering and mission teams own workload classification for FedRAMP VDR / VER, what CR / IR / AR labels mean in practice, and how AI skills and grouping rules keep upkeep practical.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="assets/theme.js?v=7749bf7907d3"></script>
+  <link rel="stylesheet" href="assets/site.css?v=e3aed76b6a4a">
+  <script defer src="assets/site.js?v=fd64253de602"></script>
+  <link rel="alternate" type="application/atom+xml" title="stackArmor customer guidance — main branch updates" href="https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header"><div class="wrap header-inner"><a class="brand" href="./" aria-label="stackArmor customer guidance home"><img class="brand-logo brand-logo-light" src="assets/stackarmor-logo.png" alt="stackArmor" width="117" height="46"><img class="brand-logo brand-logo-dark" src="assets/stackarmor-logo-white.png" alt="stackArmor" width="117" height="46"><span class="brand-label">Customer guidance</span></a><nav class="nav" aria-label="Main navigation"><a class="nav-context" href="evaluation-method.html#factors">Eight evaluation factors</a><a href="./#questions">FAQ</a><a href="./#updates">Updates</a><a class="nav-pill" href="engineer-guide.html">Engineering guide <span aria-hidden="true">↗</span></a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Dark mode" aria-pressed="false" title="Turn on dark mode" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg><span>Dark mode</span></button></nav></div></header>
+  <main id="main">
+    <div class="wrap ai-row"><details class="ai-menu" data-ai-menu><summary><span class="ai-spark" aria-hidden="true">✦</span> Ask AI about this page<span class="ai-caret" aria-hidden="true"></span></summary><div class="ai-panel"><p>Short on time? Open this page in an AI assistant to get a quick summary and ask questions in plain language.</p><div class="ai-links"><a href="https://claude.ai/new?q=Read%20this%20stackArmor%20VDR%20%2F%20VER%20customer%20guidance%20page%3A%20https%3A%2F%2Fstackarmor.github.io%2Fvdr-customer-guidance%2Fworkload-classification.html%0A%0AStart%20with%20a%20short%20summary%20of%20what%20it%20covers%20and%20what%20my%20team%20needs%20to%20do.%20Then%20answer%20my%20follow-up%20questions%20using%20the%20page%20as%20your%20source%2C%20and%20tell%20me%20when%20something%20is%20not%20covered%20there." target="_blank" rel="noopener">Claude <span aria-hidden="true">↗</span></a><a href="https://chatgpt.com/?q=Read%20this%20stackArmor%20VDR%20%2F%20VER%20customer%20guidance%20page%3A%20https%3A%2F%2Fstackarmor.github.io%2Fvdr-customer-guidance%2Fworkload-classification.html%0A%0AStart%20with%20a%20short%20summary%20of%20what%20it%20covers%20and%20what%20my%20team%20needs%20to%20do.%20Then%20answer%20my%20follow-up%20questions%20using%20the%20page%20as%20your%20source%2C%20and%20tell%20me%20when%20something%20is%20not%20covered%20there." target="_blank" rel="noopener">ChatGPT <span aria-hidden="true">↗</span></a></div><p class="ai-note">Opens in a new tab. You may need to sign in.</p></div></details></div>
+    <section class="guide-hero"><div class="wrap"><a class="back-link" href="./#questions">← Customer FAQ</a><p class="eyebrow">Asset classification / Ownership, context, and upkeep</p><h1>Only your team knows<br><em>what a workload means.</em></h1><p class="lede">PAIN scores each vulnerability in the context of the workload or cloud resource it affects. Because impact depends on how your system actually uses each component, your team owns the classification—with open-source AI skills and flexible grouping rules to keep day-two upkeep practical.</p><nav class="quick-links" aria-label="Classification rationale quick access"><a href="#why-you">Why stackArmor can’t guess ↓</a><a href="#cia-meaning">What CR / IR / AR mean ↓</a><a href="#ai-and-ownership">AI help, human ownership ↓</a><a href="#manageable-options">Grouping &amp; label options ↓</a></nav></div></section>
+    <div class="wrap guide-layout">
+      <nav class="guide-nav" aria-label="Workload classification sections"><a href="#why-you">Why stackArmor can’t guess</a><a href="#cia-meaning">What CR / IR / AR mean</a><a href="#ai-and-ownership">AI help, human ownership</a><a href="#manageable-options">Grouping &amp; label options</a><a href="#value-and-industry">Better signal &amp; peer practice</a><a href="#partnership">Work with us</a></nav>
+      <div class="guide-content">
+        <section id="why-you" aria-labelledby="why-you-title">
+          <p class="kicker">System context</p><h2 id="why-you-title">Only you know what a workload means to your system.</h2>
+          <p>Under VDR and VER, PAIN evaluates a vulnerability in the context of the affected workload or cloud resource—what data flows through it, what privileges or administrative authority it holds, what agency mission function depends on it, and whether compromise could affect one agency or several (<code>multiAgency</code>).</p>
+          <p>stackArmor operates TSW, deploys the supporting scanning infrastructure, and maintains the scoring pipeline, but we cannot invent your system’s business context on your behalf. Two services or databases that look identical from cloud or cluster metadata can play completely different roles inside your offering. Classification always has to be evaluated within the context of the system, by the people who build and operate it.</p>
+        </section>
+
+        <section id="cia-meaning" aria-labelledby="cia-meaning-title">
+          <p class="kicker">What the labels mean</p><h2 id="cia-meaning-title">Plain-language impact: exposure, tampering, and downtime.</h2>
+          <p>Security-impact profiles record how important confidentiality, integrity, and availability are for each workload or resource. Each dimension answers a concrete question about what happens if that asset is compromised:</p>
+          <div class="table-wrap"><table class="evaluation-table" aria-label="Plain-language meaning of CR, IR, and AR">
+          <thead><tr><th scope="col">Requirement</th><th scope="col">What you are deciding</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Confidentiality (<code>CR</code>)</th><td>How sensitive is the data, credential set, or administrative access on this workload—and how severe would the impact be if it were exposed to the internet or an unauthorized party?</td></tr>
+            <tr><th scope="row">Integrity (<code>IR</code>)</th><td>What would the impact be if a bad actor made unauthorized changes—manipulating, forging, or corrupting data, configuration, or actions coming from this workload?</td></tr>
+            <tr><th scope="row">Availability (<code>AR</code>)</th><td>What would the impact be if this workload or its data went down and were unavailable to the government?</td></tr>
+          </tbody>
+          </table></div>
+          <p>This connects directly to FedRAMP’s Minimum Assessment Scope (MAS) rules under the consolidated / 20x framework (such as <code>MAS-CSO-IIR</code> and <code>MAS-CSO-FLO</code>): every information resource inside the Cloud Service Offering boundary that handles federal data or can impact its confidentiality, integrity, or availability must be identified with documented information flows and security categories. Security-impact profiles put that boundary context into a consistent, machine-readable form for VDR scoring.</p>
+        </section>
+
+        <section id="ai-and-ownership" aria-labelledby="ai-and-ownership-title">
+          <p class="kicker">Expedited drafting, human accountability</p><h2 id="ai-and-ownership-title">AI handles the first pass. Your team owns the outcome.</h2>
+          <p>Classifying every workload and cloud resource can be real work, especially the first time through. That is why stackArmor created the open-source <a href="https://github.com/stackArmor/vdr-agent-skills">VDR agent skills</a>: to run read-only discovery across your clusters and cloud accounts and make strong first-pass judgment calls in minutes instead of days or weeks.</p>
+          <p>Even when an approved AI assistant drafts a strong baseline, AI can still miss system-specific nuances, compensating architecture, or mission context. A team could theoretically rubber-stamp whatever the agent outputs, but those profiles directly drive PAIN tiers and compliance remediation timelines. Your engineers and mission owners should review the drafts, overrule anything that does not match reality, and understand and own those outcomes as the system evolves.</p>
+        </section>
+
+        <section id="manageable-options" aria-labelledby="manageable-options-title">
+          <p class="kicker">Built for day-two operations</p><h2 id="manageable-options-title">Group workloads centrally or label resources directly.</h2>
+          <p>We built multiple ways to manage assignments so teams do not have to manually update classification metadata every time a service changes or scales:</p>
+          <ul>
+            <li><strong>Central grouping and pattern rules:</strong> In the Kubernetes <code>vdr-fedramp</code> ConfigMap or <code>vdr-cloud.yaml</code>, you can group workloads and cloud resources by namespace, name prefix, supported regular expressions, resource type, or existing cloud tags. New assets matching an established rule inherit coverage automatically.</li>
+            <li><strong>Direct labels on workloads or cloud resources:</strong> You can also apply VDR labels or tags directly on Kubernetes namespaces and workloads or in cloud infrastructure definitions (such as Helm values or Terraform) when you want profiles maintained alongside the code.</li>
+            <li><strong>Additive maintenance skills:</strong> When new assets appear or roles shift, <a href="https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/update-k8s-vdr-configmap/SKILL.md"><code>update-k8s-vdr-configmap</code></a> and <a href="https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/update-cloud-vdr-config/SKILL.md"><code>update-cloud-vdr-config</code></a> compare current inventory against existing assignments and draft additive updates without redoing reviewed profiles. <a href="engineer-guide.html#maintenance">See how coverage maintenance works.</a></li>
+          </ul>
+        </section>
+
+        <section id="value-and-industry" aria-labelledby="value-and-industry-title">
+          <p class="kicker">Better signal and industry practice</p><h2 id="value-and-industry-title">Stronger engineering signal—and a shared FedRAMP reality.</h2>
+          <p>Beyond satisfying VDR rules, owning this classification improves vulnerability management across your engineering organization. Teams come away with a clear map of which workloads carry the highest mission impact and a deeper understanding of how CVSS subscores, internet reachability, and PAIN work together—turning severity ratings from opaque numbers into clear, defensible remediation priorities.</p>
+          <p>From stackArmor’s participation in the CSP Advisory Board (CSP-AB) and ongoing conversations with fellow cloud service providers and 3PAOs, every organization implementing FedRAMP VDR / VER—whether on its own, with stackArmor, or through other compliance accelerators—is doing a version of this workload metadata labeling. No scanner or compliance provider can compute contextual agency impact without system-owner input.</p>
+        </section>
+
+        <section id="partnership" aria-labelledby="partnership-title">
+          <p class="kicker">We’re here to help</p><h2 id="partnership-title">Tell us where the workflow hurts.</h2>
+          <p>We know this initial classification takes effort, and we appreciate your team’s partnership in getting it right. The tooling and skills continue to evolve as more teams adopt them.</p>
+          <p>If your team runs into edge cases, painful workflows, or opportunities for better grouping or automation, raise them with your stackArmor engagement manager or in our shared Slack channel—we want to hear those pain points and work through them with you.</p>
+          <a class="button" href="engineer-guide.html">Open the engineering guide <span aria-hidden="true">→</span></a>
+        </section>
+      </div>
+    </div>
+  </main>
+  <footer class="footer wrap"><div class="footer-top"><a class="brand" href="https://stackarmor.com" aria-label="stackArmor"><img class="brand-logo brand-logo-light" src="assets/stackarmor-logo.png" alt="stackArmor" width="97" height="38"><img class="brand-logo brand-logo-dark" src="assets/stackarmor-logo-white.png" alt="stackArmor" width="97" height="38"></a><div class="footer-links"><a href="./">Customer overview</a><a href="./#questions">FAQ</a><a href="engineer-guide.html">Engineering guide</a><a href="./#updates">Subscribe to updates</a><a href="#main">Back to top ↑</a></div></div><p class="footer-note">Customer guidance · Updated November 17, 2026. Coordinate classification review and rollout questions with your stackArmor team.</p></footer>
+</body>
+</html>

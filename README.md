@@ -13,6 +13,10 @@ FedRAMP VDR / VER transition.
 - `engineer-guide.html`: engineering guide for cloud CLI / vdr-cloud.yaml and
   Kubernetes classification, profile association, ongoing coverage updates,
   and in-cluster or optional local/SDLC container scanning, with Kubernetes-specific scan commands.
+- `workload-classification.html`: why customer teams own workload classification
+  and run the AI skills, plain-language CR / IR / AR definitions and Minimum
+  Assessment Scope (MAS) context, grouping and direct-labeling options, and
+  industry context from CSP-AB / 3PAO discussions.
 - `evaluation-method.html`: vendor evaluation history, decision transparency, protocol
   and attack-path examples, RADAR TRACE research, exploitability/detectability,
   chaining, remediation-component examples, integration criteria, and peer feedback.
@@ -35,7 +39,7 @@ Open http://localhost:8765/. GitHub Pages publishes the root of `main`.
 
 ## Appearance
 
-All four pages include a Dark mode toggle in the main navigation. The first
+All five pages include a Dark mode toggle in the main navigation. The first
 visit follows the system appearance; an explicit choice is saved locally and
 reused across pages and tabs. System changes remain effective until a choice
 is made. The small theme script runs before the stylesheet to avoid a flash of
@@ -159,6 +163,7 @@ Supporting sources:
 - [VDR agent skills](https://github.com/stackArmor/vdr-agent-skills)
 - [Security-impact profile classification guide](https://github.com/stackArmor/vdr-agent-skills/blob/main/skills/generate-k8s-vdr-configmap/references/archetype-guide.md)
 - [Trivy VDR plugin](https://github.com/stackArmor/trivy-plugin-vdr)
+- [Internet reachability white paper](https://stackarmor.github.io/rfc-fedramp-vdr/internet-reachability.pdf)
 - [RADAR TRACE public analysis](https://github.com/stackArmor/radar-trace-public)
 - [RADAR TRACE reachability gates](https://github.com/stackArmor/radar-trace-public/blob/main/docs/reachability-gates.md)
 - [FedRAMP notice NTC-0014](https://www.fedramp.gov/notices/0014/)
@@ -177,7 +182,15 @@ avoided; customers use approved services and configurations.
 The overview's `#evaluation-method` section maps TSW's method to the eight
 VER-EVA-EFA factors. It explains how detectability informs exploitation
 likelihood and how asset classification incorporates privilege. The detailed
-method page defines a **remediation component** as the configuration
+method page's `#pain-and-factors` section and the `#eight-factors-pain-faq`
+entry explain why non-impact factors are not folded into PAIN directly (avoiding
+double-counting across PAIN, likelihood, and reachability dimensions) and why
+prevalence is evaluated through governing remediation-component grouping rather
+than arbitrary count thresholds; `workload-classification.html` and
+`#why-customer-classification-faq` document why customer teams own workload
+classification, CR / IR / AR meanings, Minimum Assessment Scope (`MAS-CSO-IIR`,
+`MAS-CSO-FLO`) context, and grouping / labeling options. The detailed method
+page defines a **remediation component** as the configuration
 component that must change for a fix to survive restart, redeployment, or scaling;
 the overview retains `#prevalence` as a short explanation and link.
 Container examples retain each image reference, including init containers;
@@ -234,7 +247,7 @@ https://github.com/stackArmor/vdr-customer-guidance/commits/main.atom
 
 The feed is maintained by GitHub; no manual feed entries or publishing jobs are
 needed. The website's Updates section includes a copyable URL and guidance for
-Slack, Atom-compatible Teams apps, and RSS/Atom readers. All four pages declare the
+Slack, Atom-compatible Teams apps, and RSS/Atom readers. All five pages declare the
 feed with an HTML alternate link for feed discovery. Notifications depend on
 the selected integration's refresh schedule and may precede Pages deployment.
 
